@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
+             x:Class="NaitonGps.Views.TermsAndServices"
+             xmlns:customFrame="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="False"
+             iOS:Page.PrefersStatusBarHidden="True"
+             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+             >
+    <ContentPage.Content>
+        <Grid Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10, 40, 10, 0', ExtraSmall='10, 10, 10, 0'}" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="{markups:OnScreenSize DefaultSize='Auto', Medium='3*', ExtraSmall='*'}"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="0" Source="leftarrow.png" HorizontalOptions="Start" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='80', ExtraSmall='65'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='80', ExtraSmall='65'}" Source="acceptance.png"></Image>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Terms And Service" HorizontalOptions="Center" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='22', ExtraSmall='18'}" FontAttributes="Bold" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,0,0,0', ExtraSmall='0,0,0,0'}" TextColor="Black"></Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

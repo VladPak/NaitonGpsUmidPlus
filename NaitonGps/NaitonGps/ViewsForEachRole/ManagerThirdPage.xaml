@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+      xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
+      xmlns:common="clr-namespace:NaitonGps.Views;assembly=NaitonGps"
+      xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
+      x:Class="NaitonGps.ViewsForEachRole.ManagerThirdPage" 
+      NavigationPage.HasNavigationBar="False"
+      xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+      iOS:Page.UseSafeArea="true"
+      iOS:Page.PrefersStatusBarHidden="Default"
+      iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+      Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,10', ExtraSmall='5, 20, 5, 15'}"
+      RowDefinitions="0.6*, 6*, 0.4*" 
+      ColumnDefinitions="*, Auto, *"      
+>
+
+    <!-- #region Header -->
+    <common:HeaderNavigationBar Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" x:Name="Header" IsVisible="true">
+    </common:HeaderNavigationBar>
+    <!--#endregion-->
+
+    <!--#region Body-->
+    <Label  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Balance Sheet Form"/>
+    <!--#endregion-->
+
+    <!--#region Botton Navbar content -->
+    <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />
+    <!--#endregion-->
+</Grid>
+
