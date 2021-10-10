@@ -4,6 +4,7 @@ using NaitonGps.Views;
 using Newtonsoft.Json;
 using SimpleWSA;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -52,31 +53,44 @@ namespace NaitonGps
                 {
                     try
                     {
-                        var response = await ApiService.GetWebService("naitongps");
-                        if (response)
-                        {
-                            UserLoginDetails userData = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
+                        ////var response = await ApiService.GetWebService(Preferences.Get("loginCompany", string.Empty));
 
-                            Session session = new Session(userData.userEmail,
-                                                            userData.userPassword,
-                                                            userData.isEncrypted,
-                                                            userData.appId,
-                                                            userData.appVersion,
-                                                            userData.domain,
-                                                            null);
+                        //string webservice = String.Format("https://connectionprovider.naiton.com/DataAccess/{0}/restservice/address", Preferences.Get("loginCompany", string.Empty));
 
-                            await session.CreateByConnectionProviderAddressAsync(userData.restServiceAddress);
-                            var nav = new NavigationPage(new MainNavigationPage());
-                            MainPage = nav;
-                        }
-                        else
-                        {
-                            await App.Current.MainPage.DisplayAlert("", "Ghtun", "Ok");
-                        }
+                        //var httpClient = new HttpClient();
+                        //var response = await httpClient.GetAsync(webservice);
+                        //var responseContent = await response.Content.ReadAsStringAsync();
+                        //var rsToString = responseContent.ToString();
+
+                        //Preferences.Set("webservicelink", rsToString);
+
+
+                        //if (response)
+                        //{
+                        UserLoginDetails userData = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
+
+                        Session session = new Session(userData.userEmail,
+                                                        userData.userPassword,
+                                                        userData.isEncrypted,
+                                                        userData.appId,
+                                                        userData.appVersion,
+                                                        userData.domain,
+                                                        null);
+
+                        await session.CreateByConnectionProviderAddressAsync(userData.connectionProviderAddress);
+                        MainPage = new MainNavigationPage();
+                        //var nav = new NavigationPage(new MainNavigationPage());
+                        //MainPage = nav;
                     }
+                    //    }
+                    //    else
+                    //    {
+                    //        await App.Current.MainPage.DisplayAlert("", "Ghtun", "Ok");
+                    //    }
+                    //}
                     catch (Exception ex)
                     {
-                        await App.Current.MainPage.DisplayAlert("", ex.Message, "Ok");
+                        Console.WriteLine(ex.ToString());
                     }
                 }
             }

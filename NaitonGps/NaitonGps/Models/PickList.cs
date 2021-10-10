@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace NaitonGps.Models
 {
@@ -13,6 +15,7 @@ namespace NaitonGps.Models
         public string PickerName { get; set; }
         [JsonProperty]
         public int Racks { get; set; }
+        
         [JsonProperty]
         public decimal Weight { get; set; }
         [JsonProperty]
