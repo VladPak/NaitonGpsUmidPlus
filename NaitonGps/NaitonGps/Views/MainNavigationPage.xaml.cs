@@ -52,17 +52,8 @@ namespace NaitonGps.Views
             Screens = new ScreenTemplatesViewModel();
             allNavItems = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
 
-            //if (isSmallScreen)
-            //{
-            //    bottomNavMenu.ColumnSpacing = 20;
-            //}
-            //else if (isBigScreen)
-            //{
-            //    bottomNavMenu.ColumnSpacing = 30;
-            //}
             selectedIndex = 1;
             SetMenuItems();
-
 
             if (maxIndex <= 1)
             {
@@ -571,7 +562,7 @@ namespace NaitonGps.Views
                             }
                             else
                             {
-                                DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
+                                await DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
                                 ControlTemplate = defaultTemp;
                                 selectedIndex = 1;
                             }

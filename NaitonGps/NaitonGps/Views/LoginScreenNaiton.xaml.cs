@@ -44,7 +44,6 @@ namespace NaitonGps.Views
             if (CrossConnectivity.Current.IsConnected)
             {
                 Preferences.Set("loginCompany", entCompany.Text);
-                //Preferences.Set("loginEmail", entEmail.Text);
                 
                 //Call Web service
                 taps++;
@@ -91,12 +90,12 @@ namespace NaitonGps.Views
                                     try
                                     {
                                         string currentAppVersion = VersionTracking.CurrentVersion;
-
+                                        string currentAppVersion1 = "1";
                                         Session session = new Session(userEmail,
                                                                         entPassword.Text,
                                                                         false,
                                                                         4,
-                                                                        currentAppVersion,
+                                                                        currentAppVersion1,
                                                                         Preferences.Get("loginCompany", string.Empty),
                                                                         null);
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
@@ -112,7 +111,7 @@ namespace NaitonGps.Views
                                             appVersion = SessionContext.AppVersion,
                                             isEncrypted = SessionContext.IsEncrypted,
                                             connectionProviderAddress = "https://connectionprovider.naiton.com/",
-                                            domain = Preferences.Get("webservicelink", string.Empty)
+                                            domain = SessionContext.Domain
                                         };
 
 
@@ -157,7 +156,6 @@ namespace NaitonGps.Views
                         {
                             await DisplayAlert("", "Check the Internet connection.", "Ok");
                         }
-
                         taps = 0;
                     }
                     else if (taps >= 2)
