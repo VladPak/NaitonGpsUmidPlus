@@ -49,6 +49,15 @@ namespace NaitonGps.Views
         public MainNavigationPage()
         {
             InitializeComponent();
+            if (isSmallScreen)
+            {
+                bottomNavMenu.ColumnSpacing = 20;
+            }
+            else if (isBigScreen)
+            {
+                bottomNavMenu.ColumnSpacing = 40;
+            }
+
             Screens = new ScreenTemplatesViewModel();
             allNavItems = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
 
@@ -129,20 +138,38 @@ namespace NaitonGps.Views
             }
             else
             {
+
                 while (true)
                 {
                     try
                     {
+                        UserLoginDetails dataFinalizeUserEP = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
+
+                        SimpleWSA.Command commandGetAllUserData = new SimpleWSA.Command("userlogin_checklogin5");
+                        commandGetAllUserData.Parameters.Add("_login", PgsqlDbType.Varchar).Value = dataFinalizeUserEP.userEmail;
+                        commandGetAllUserData.Parameters.Add("_password", PgsqlDbType.Varchar).Value = dataFinalizeUserEP.userPassword;
+                        commandGetAllUserData.WriteSchema = WriteSchema.TRUE;
+
+                        string xmlResult1 = SimpleWSA.Command.Execute(commandGetAllUserData,
+                        RoutineType.DataSet,
+                        httpMethod: SimpleWSA.HttpMethod.GET,
+                        responseFormat: ResponseFormat.JSON);
+
+                        var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, UserDetails[]>>(xmlResult1);
+                        var empRoleId = dataFinalize["userlogin_checklogin5"].Select(x=>x.EmployeeRightId).First();
+
+                        
                         SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-                        command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 2;
+                        command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = empRoleId;
                         command.WriteSchema = WriteSchema.TRUE;
+
                         string xmlResult = SimpleWSA.Command.Execute(command,
                                                             RoutineType.DataSet,
                                                             httpMethod: SimpleWSA.HttpMethod.GET,
                                                             responseFormat: ResponseFormat.JSON);
 
-                        var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
-                        var allRoles = dataFinalize.Values.ToList();
+                        var dataFinalize1 = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+                        var allRoles = dataFinalize1.Values.ToList();
 
                         foreach (var item in allRoles)
                         {

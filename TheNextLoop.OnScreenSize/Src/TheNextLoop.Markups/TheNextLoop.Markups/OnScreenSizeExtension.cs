@@ -23,7 +23,6 @@ namespace TheNextLoop.Markups
         private static List<ScreenInfo> _screenSizes = new List<ScreenInfo>
         {
             { new ScreenInfo(480,800, eScreenSizes.ExtraSmall)}, //Samsung Galaxy S,
-            { new ScreenInfo(480,800, eScreenSizes.DefaultSize)}, //Samsung Galaxy S,
             { new ScreenInfo(720,1280, eScreenSizes.Small)}, //Nesus S
             { new ScreenInfo(828,1792, eScreenSizes.Medium)}, //iphone 11
             { new ScreenInfo(1284,2778, eScreenSizes.Large)}, //Apple iPhone 12 Pro Max
@@ -34,7 +33,6 @@ namespace TheNextLoop.Markups
 
 
         private Dictionary<eScreenSizes, object> _values = new Dictionary<eScreenSizes, object>() {
-            {eScreenSizes.DefaultSize, null },
             { eScreenSizes.ExtraSmall, null},
             { eScreenSizes.Small, null},
             { eScreenSizes.Medium,  null},
@@ -57,19 +55,19 @@ namespace TheNextLoop.Markups
         /// <summary>
         /// Tamanho-padrao na tela que deve ser assumido quando não for possivel determinar o tamanho dela com base na lista <see cref="_screenSizes"/>
         /// </summary>
-        //public object DefaultSize { get; set; }
-        
-        public object DefaultSize 
-        {
-            get
-            {
-                return _values[eScreenSizes.DefaultSize];
-            }
-            set
-            {
-                _values[eScreenSizes.DefaultSize] = value;
-            }
-        }
+        public object DefaultSize { get; set; }
+
+        //public object DefaultSize 
+        //{
+        //    get
+        //    {
+        //        return _values[eScreenSizes.DefaultSize];
+        //    }
+        //    set
+        //    {
+        //        _values[eScreenSizes.DefaultSize] = value;
+        //    }
+        //}
 
 
         public object ExtraSmall
@@ -84,7 +82,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.ExtraSmall] = value;
             }
         }
-
         public object Small
         {
             get
@@ -109,7 +106,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.Medium] = value;
             }
         }
-
         public object Large
         {
             get
@@ -122,7 +118,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.Large] = value;
             }
         }
-
         public object ExtraLarge
         {
             get
@@ -135,7 +130,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.ExtraLarge] = value;
             }
         }
-
 
 
         public object ProvideValue(IServiceProvider serviceProvider)
@@ -162,7 +156,6 @@ namespace TheNextLoop.Markups
 
             return value.ConvertTo(propertyType, bp);
         }
-
 
         private object GetValue(IServiceProvider serviceProvider)
         {
