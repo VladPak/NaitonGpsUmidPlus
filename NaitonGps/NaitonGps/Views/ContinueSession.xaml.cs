@@ -42,6 +42,11 @@ namespace NaitonGps.Views
                 await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
                 Application.Current.MainPage = new NavigationPage(new MainNavigationPage());
             }
+            catch (RestServiceException rex)
+            {
+                Console.WriteLine(rex.ToString());
+                await DisplayAlert("", "Cannot restore session from existing credentials, please press Log Out, and enter your credentials again", "Ok");
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
