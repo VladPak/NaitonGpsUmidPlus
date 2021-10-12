@@ -30,7 +30,12 @@ namespace NaitonGps.Services
 
     public void Test16()
     {
-      Console.WriteLine("hello github test15!!!");
+      Console.WriteLine("hello github test16!!!");
+    }
+
+    public void Test17()
+    {
+      Console.WriteLine("hello github test17!!!");
     }
 
     public static async Task<bool> GetWebService(string webserviceLink)
