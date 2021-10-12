@@ -24,6 +24,11 @@ namespace NaitonGps.Services
       Console.WriteLine("hello github test13!!!");
     }
 
+    public void Test15()
+    {
+      Console.WriteLine("hello github test15!!!");
+    }
+
     public static async Task<bool> GetWebService(string webserviceLink)
         {
             string webservice = String.Format("https://connectionprovider.naiton.com/DataAccess/{0}/restservice/address", webserviceLink);
