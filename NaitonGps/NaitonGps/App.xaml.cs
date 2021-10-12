@@ -27,32 +27,67 @@ namespace NaitonGps
             base.OnStart();
             bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") && Convert.ToBoolean(Current.Properties["IsLoggedIn"]);
 
-            if (IsSmallScreen)
+            if (Device.RuntimePlatform == Device.iOS)
             {
-                if (!isLoggedIn)
+                if (IsSmallScreen)
                 {
-                    var nav = new NavigationPage(new LoginScreenNaiton());
-                    MainPage = nav;
+                    //??
+                    if (!isLoggedIn)
+                    {
+                        var nav = new NavigationPage(new LoginScreenNaiton());
+                        MainPage = nav;
+                    }
+                    else
+                    {
+                        var nav = new NavigationPage(new ContinueSession());
+                        MainPage = nav;
+                    }
                 }
-                else
+                else if (IsBigScreen)
                 {
-                    var nav = new NavigationPage(new ContinueSession());
-                    MainPage = nav;
+                    if (!isLoggedIn)
+                    {
+                        var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
+                        MainPage = nav;
+                    }
+                    else
+                    {
+                        var nav = new NavigationPage(new ContinueSession());
+                        MainPage = nav;
+                    }
                 }
             }
-            else if (IsBigScreen)
+            else if (Device.RuntimePlatform == Device.Android)
             {
-                if (!isLoggedIn)
+                if (IsSmallScreen)
                 {
-                    var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
-                    MainPage = nav;
+                    if (!isLoggedIn)
+                    {
+                        var nav = new NavigationPage(new LoginScreenNaiton());
+                        MainPage = nav;
+                    }
+                    else
+                    {
+                        var nav = new NavigationPage(new ContinueSession());
+                        MainPage = nav;
+                    }
                 }
-                else
+                else if (IsBigScreen)
                 {
-                    var nav = new NavigationPage(new ContinueSession());
-                    MainPage = nav;
+                    //??
+                    if (!isLoggedIn)
+                    {
+                        var nav = new NavigationPage(new LoginScreenNaitonAndroidBig());
+                        MainPage = nav;
+                    }
+                    else
+                    {
+                        var nav = new NavigationPage(new ContinueSession());
+                        MainPage = nav;
+                    }
                 }
             }
+
         }
 
         protected override void OnSleep()
