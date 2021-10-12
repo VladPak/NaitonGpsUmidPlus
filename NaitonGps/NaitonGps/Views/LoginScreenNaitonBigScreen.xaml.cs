@@ -28,12 +28,14 @@ namespace NaitonGps.Views
             entCompany.Text = string.Empty;
             entEmail.Text = string.Empty;
             entPassword.Text = string.Empty;
-#if DEBUG
-            entCompany.Text = "upstairstest";
-            entEmail.Text = "m.aerts@upstairs.com";
-            entPassword.Text = "Gromit12";
-#endif
+            
+            #if DEBUG
+                entCompany.Text = "upstairstest";
+                entEmail.Text = "m.aerts@upstairs.com";
+                entPassword.Text = "Gromit12";
+            #endif
 
+            scrollToActivate.IsEnabled = false;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;
 
@@ -87,7 +89,6 @@ namespace NaitonGps.Views
                                 await DisplayAlert("", "Invalid password", "Ok");
                                 entCompany.Text = Preferences.Get("loginCompany", string.Empty);
                                 entEmail.Text = Preferences.Get("loginEmail", string.Empty);
-                                
                                 entPassword.Text = string.Empty;
                                 entPassword.Focus();
                             }
@@ -96,7 +97,6 @@ namespace NaitonGps.Views
                                 await DisplayAlert("", "Invalid email", "Ok");
                                 entCompany.Text = Preferences.Get("loginCompany", string.Empty);
                                 entPassword.Text = Preferences.Get("loginPassword", string.Empty);
-                                
                                 entEmail.Text = string.Empty;
                                 entEmail.Focus();
                             }
@@ -140,7 +140,6 @@ namespace NaitonGps.Views
                                             entEmail.Focus();
                                             break;
                                         }
-
                                     }
                                     catch (Exception ex)
                                     {

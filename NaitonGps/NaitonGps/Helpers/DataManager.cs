@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheNextLoop.Markups;
 using Xamarin.Essentials;
 
 namespace NaitonGps.Helpers
@@ -107,6 +108,7 @@ namespace NaitonGps.Helpers
                     domain = SessionContext.Domain
                 };
                 _user = userLoginDetails;
+
                 return userLoginDetails;
             }
             catch(Exception ex)
@@ -118,22 +120,27 @@ namespace NaitonGps.Helpers
         public static void SetUserData(out int roleId)
         {
             roleId = 0;
-            UserLoginDetails dataFinalizeUserEP = _user;
-
+            UserLoginDetails dataFinalizeUserEP = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
+            var userid = dataFinalizeUserEP.PersonId;
             SimpleWSA.Command commandGetAllUserData = new SimpleWSA.Command("userlogin_checklogin5");
             commandGetAllUserData.Parameters.Add("_login", PgsqlDbType.Varchar).Value = dataFinalizeUserEP.userEmail;
             commandGetAllUserData.Parameters.Add("_password", PgsqlDbType.Varchar).Value = dataFinalizeUserEP.userPassword;
             commandGetAllUserData.WriteSchema = WriteSchema.TRUE;
 
             string xmlResult1 = SimpleWSA.Command.Execute(commandGetAllUserData,
-            RoutineType.DataSet,
-            httpMethod: SimpleWSA.HttpMethod.GET,
-            responseFormat: ResponseFormat.JSON);
+                                                        RoutineType.DataSet,
+                                                        httpMethod: SimpleWSA.HttpMethod.GET,
+                                                        responseFormat: ResponseFormat.JSON);
 
             var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, UserDetails[]>>(xmlResult1);
             var newUser = dataFinalize.First().Value.First();
+
+            if (_user is null)
+                RegistrationServiceSession();
+
             _user.RoleId = newUser.EmployeeRightId;
             _user.PersonId = newUser.EmployeeId;            
+
             roleId = dataFinalize["userlogin_checklogin5"].Select(x => x.EmployeeRightId).First();
         }
 

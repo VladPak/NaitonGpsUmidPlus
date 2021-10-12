@@ -29,20 +29,6 @@ namespace NaitonGps.Views
         {
             try
             {
-                ////var response = await ApiService.GetWebService(Preferences.Get("loginCompany", string.Empty));
-
-                //string webservice = String.Format("https://connectionprovider.naiton.com/DataAccess/{0}/restservice/address", Preferences.Get("loginCompany", string.Empty));
-
-                //var httpClient = new HttpClient();
-                //var response = await httpClient.GetAsync(webservice);
-                //var responseContent = await response.Content.ReadAsStringAsync();
-                //var rsToString = responseContent.ToString();
-
-                //Preferences.Set("webservicelink", rsToString);
-
-
-                //if (response)
-                //{
                 UserLoginDetails userData = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
 
                 Session session = new Session(userData.userEmail,
@@ -53,17 +39,9 @@ namespace NaitonGps.Views
                                                 userData.domain,
                                                 null);
 
-                await session.CreateByConnectionProviderAddressAsync(userData.connectionProviderAddress);
-                //MainPage = new MainNavigationPage();
+                await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
                 Application.Current.MainPage = new NavigationPage(new MainNavigationPage());
-
             }
-            //    }
-            //    else
-            //    {
-            //        await App.Current.MainPage.DisplayAlert("", "Ghtun", "Ok");
-            //    }
-            //}
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
