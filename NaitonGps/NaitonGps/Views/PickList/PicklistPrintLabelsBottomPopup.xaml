@@ -36,7 +36,7 @@
             </Image>
 
             <Label  Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="6" Text="Print Parcel Labels" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='28', ExtraSmall='20'}" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Start" HorizontalOptions="Start"/>
-            <Label Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,-60,0,0', ExtraSmall='0,-35,0,0'}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Text="Description about labels. Description about labels." FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='17', ExtraSmall='14'}" FontAttributes="None" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Label Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,-60,0,0', ExtraSmall='0,-35,0,0'}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Text="You should print at least one label." FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='17', ExtraSmall='14'}" FontAttributes="None" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Start" HorizontalOptions="Start"/>
 
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" Text="Number of Labels" TextColor="#69717E" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='16', ExtraSmall='14'}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
 

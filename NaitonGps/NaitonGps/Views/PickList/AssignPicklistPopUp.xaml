@@ -26,7 +26,7 @@
 
             <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start" Spacing="{markups:OnScreenSize DefaultSize='Auto', Medium='20', ExtraSmall='10'}">
                 <Label Text="Assign to you?" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='25', ExtraSmall='18'}" VerticalOptions="Center" HorizontalOptions="Center" CharacterSpacing="1.5"></Label>
-                <Label Text="If you don't want to be assigned you can still view the picklist details" HorizontalTextAlignment="Center" FontAttributes="None" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='16', ExtraSmall='13'}" CharacterSpacing="1.3" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                <Label Text="Press 'NO' for view and 'Assign' for view and edit" HorizontalTextAlignment="Center" FontAttributes="None" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='16', ExtraSmall='13'}" CharacterSpacing="1.3" VerticalOptions="Center" HorizontalOptions="Center"></Label>
             </StackLayout>
 
             <Frame VerticalOptions="Center" Grid.Row="2" Grid.Column="0" BackgroundColor="#ffffff" CornerRadius="9" BorderColor="#E7E7E8" HasShadow="False" WidthRequest="100" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='19'}">

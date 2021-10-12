@@ -22,13 +22,9 @@ namespace NaitonGps.Views
         public NotificationsPage()
         {
             InitializeComponent();
-            UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
-            //UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>(Settings.GeneralSettings);
-            //userEmail.Text = userData.;
-            //userPassword.Text = ;
-            //Session userData = JsonConvert.DeserializeObject<Session>((string)App.Current.Properties["UserDetail"]);
+            UserDetails userLoginDetails = JsonConvert.DeserializeObject<UserDetails>((string)Application.Current.Properties["UserDetail"]);
 
-            userEmail.Text = userLoginDetails.userToken;
+            //userEmail.Text = "Name: " + userLoginDetails.EmployeeName;
         }
 
         private async void Logout(object sender, EventArgs e)

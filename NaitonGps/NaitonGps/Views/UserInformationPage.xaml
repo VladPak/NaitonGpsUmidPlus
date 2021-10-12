@@ -21,11 +21,11 @@
         VerticalOptions="EndAndExpand" 
         HorizontalOptions="FillAndExpand" >
         <Frame CornerRadius="20"  HorizontalOptions="FillAndExpand" HasShadow="False" BackgroundColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorGrey}}">
-            <Grid RowDefinitions="*, 2*, 2*, *" ColumnDefinitions="*, *" Margin="0, 0, 0, 20">
+            <Grid RowDefinitions="*, *, 2*, *" ColumnDefinitions="*, *" Margin="0, 0, 0, 20">
 
                 <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Text="User Information" FontAttributes="Bold" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
-                <Label x:Name="userEmail" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center" Text="Token" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
-                <Label IsVisible="false" x:Name="userPassword" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center" Text="user's password" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
+                <Label x:Name="userInfoEmail" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Start" Text="User Email" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
+                <Label IsVisible="false" x:Name="userInfoName" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Start" Text="User Email" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
                 
                 <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" CornerRadius="25" BackgroundColor="#268646" BorderColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" HasShadow="False" >
                     <StackLayout>

@@ -2,6 +2,7 @@
 using NaitonGps.ViewModels;
 using Rg.Plugins.Popup.Services;
 using System;
+using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -25,13 +26,31 @@ namespace NaitonGps.Views
             switch (modeResult)
             {
                 case "readOnly":
-                    gridToHide.IsVisible = false;
+                    //gridToHide.IsVisible = false;
+                    //Grid.SetRow(mainGrid, 2);
+                    //mainGrid.Children.RemoveAt(2);
+
+                    var row = Grid.GetRow(mainGrid.Children[2]);
+                    var children = mainGrid.Children.ToList();
+                    foreach (var child in children.Where(child => Grid.GetRow(child) == row))
+                    {
+                        mainGrid.Children.Remove(child);
+                    }
+                    foreach (var child in children.Where(child => Grid.GetRow(child) > row))
+                    {
+                        Grid.SetRow(child, Grid.GetRow(child) - 1);
+                    }
+
+                    mainGrid.RowDefinitions.RemoveAt(mainGrid.RowDefinitions.Count - 1);
+
                     break;
                 case "readAndEdit":
                     gridToHide.IsVisible = true;
+                    Grid.SetRow(mainGrid, 3);
                     break;
                 default:
                     gridToHide.IsVisible = true;
+                    Grid.SetRow(mainGrid, 3);
                     DisplayAlert("", "Server error. Please contact app development team", "Ok");
                     break;
             }
