@@ -1,4 +1,5 @@
-﻿using NaitonGps.Models;
+﻿using NaitonGps.Helpers;
+using NaitonGps.Models;
 using NaitonGps.Services;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
@@ -27,6 +28,13 @@ namespace NaitonGps.Views
             entCompany.Text = string.Empty;
             entEmail.Text = string.Empty;
             entPassword.Text = string.Empty;
+            
+            #if DEBUG
+                entCompany.Text = "upstairstest";
+                entEmail.Text = "m.aerts@upstairs.com";
+                entPassword.Text = "Gromit12";
+            #endif
+
             scrollToActivate.IsEnabled = false;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;            
@@ -90,32 +98,19 @@ namespace NaitonGps.Views
                                     try
                                     {
                                         string currentAppVersion = VersionTracking.CurrentVersion;
-                                        string currentAppVersion1 = "1";
                                         Session session = new Session(userEmail,
                                                                         entPassword.Text,
                                                                         false,
                                                                         4,
-                                                                        currentAppVersion1,
+                                                                        currentAppVersion,
                                                                         Preferences.Get("loginCompany", string.Empty),
                                                                         null);
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
 
-                                        Preferences.Set("token", SessionContext.Token);
-
-                                        UserLoginDetails userLoginDetails = new UserLoginDetails
-                                        {
-                                            userEmail = SessionContext.Login,
-                                            userPassword = SessionContext.Password,
-                                            userToken = SessionContext.Token,
-                                            appId = SessionContext.AppId,
-                                            appVersion = SessionContext.AppVersion,
-                                            isEncrypted = SessionContext.IsEncrypted,
-                                            connectionProviderAddress = "https://connectionprovider.naiton.com/",
-                                            domain = SessionContext.Domain
-                                        };
+                                        var user = DataManager.RegistrationServiceSession();
 
 
-                                        Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
+                                        Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(user);
                                         await Application.Current.SavePropertiesAsync();
                                         Xamarin.Forms.Application.Current.Properties["IsLoggedIn"] = bool.TrueString;
 

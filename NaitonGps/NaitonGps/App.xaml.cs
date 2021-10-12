@@ -36,8 +36,7 @@ namespace NaitonGps
                 }
                 else
                 {
-
-                    var nav = new NavigationPage(new MainNavigationPage());
+                    var nav = new NavigationPage(new ContinueSession());
                     MainPage = nav;
                 }
             }
@@ -50,7 +49,7 @@ namespace NaitonGps
                 }
                 else
                 {
-                    var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
+                    var nav = new NavigationPage(new ContinueSession());
                     MainPage = nav;
                 }
             }
