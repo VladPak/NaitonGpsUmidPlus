@@ -21,7 +21,6 @@
                 <Grid RowDefinitions="2*, *, *" ColumnDefinitions="*, *, *, *, *, *" Grid.Row="0" Grid.Column="0" x:Name="GridFrame">
 
                 <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
-                <ScrollView Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="4" x:Name="scrollToActivate">
 
                     <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3" BackgroundColor="#ffffff" CornerRadius="20, 20, 0, 0">
                         <Grid RowDefinitions="1.2*, 1.2*, 1.2*, 1.4*, *, *" ColumnDefinitions="*" Padding="0, 25, 0, 40" Margin="20, 0, 20, 0" x:Name="GridFrameInPancake">
@@ -72,7 +71,6 @@
                             </Label>
                         </Grid>
                     </customFrame:PancakeView>
-                </ScrollView>
             </Grid>
             </ScrollView>
         </Grid>

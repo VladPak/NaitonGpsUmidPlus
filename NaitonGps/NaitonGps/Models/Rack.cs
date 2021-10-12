@@ -6,8 +6,8 @@ namespace NaitonGps.Models
 {
     public class Rack
     {
-        public int rackId { get; set; }
-        public string rackTitle { get; set; }
-        public int rackItemQuantity { get; set; }
+        public int StockRackId { get; set; }
+        public string RackName { get; set; }
+        public decimal QuantityInStock { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace NaitonGps.ViewModels
         public ICommand RefreshCommand { protected set; get; }
 
         public List<PickListItem> PickListItems { get; set; }
+        public int PickListId { get; set; }
 
 
         bool _isRefreshing = false;
@@ -37,6 +39,9 @@ namespace NaitonGps.ViewModels
 
         public PicklistContentDataViewModel(List<PickListItem> pickListItems)
         {
+            if (pickListItems.Count > 0)
+                PickListId = pickListItems.First().PickListId;
+
             PickListItems = pickListItems;
 
             RefreshCommand = new Command<string>((key) =>

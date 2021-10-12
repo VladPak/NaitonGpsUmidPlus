@@ -1,4 +1,5 @@
-﻿using NaitonGps.ViewModels;
+﻿using NaitonGps.Helpers;
+using NaitonGps.ViewModels;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PicklistSearchItemBottomPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
-        public PicklistSearchItemBottomPopup()
+        public PicklistSearchItemBottomPopup(int deliveryOrderDetailsId)
         {
             InitializeComponent();
-            
-            BindingContext = new RacksViewModel();
+
+            var rackList = DataManager.GetPickRacks(deliveryOrderDetailsId);
+            BindingContext = new RacksViewModel(rackList);
             
         }
 

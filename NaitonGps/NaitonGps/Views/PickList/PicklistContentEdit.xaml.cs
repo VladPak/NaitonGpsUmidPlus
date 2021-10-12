@@ -62,9 +62,9 @@ namespace NaitonGps.Views
             await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
         }
 
-        private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
+        private async void ShowRackList(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PushAsync(new PicklistSearchItemBottomPopup());
+            await PopupNavigation.Instance.PushAsync(new PicklistSearchItemBottomPopup((int)((TappedEventArgs)e).Parameter));
         }
     }
 }

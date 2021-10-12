@@ -35,7 +35,6 @@ namespace NaitonGps.Views
                 entPassword.Text = "Gromit12";
             #endif
 
-            scrollToActivate.IsEnabled = false;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;
 

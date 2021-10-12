@@ -67,6 +67,31 @@ namespace NaitonGps.Helpers
             }
         }
 
+        public static List<Rack> GetPickRacks(int deliveryOrderDetailsId)
+        {
+            try
+            {
+                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpickracksformobile");
+                command.Parameters.Add("_deliveryorderdetailsid", PgsqlDbType.Integer, deliveryOrderDetailsId);
+                
+                command.WriteSchema = WriteSchema.TRUE;
+                string xmlResult = SimpleWSA.Command.Execute(command,
+                                                    RoutineType.DataSet,
+                                                    httpMethod: SimpleWSA.HttpMethod.GET,
+                                                    responseFormat: ResponseFormat.JSON);
+
+                var dict = JsonConvert.DeserializeObject<Dictionary<string, Rack[]>>(xmlResult);
+
+                var rackList = dict.First().Value.ToList();
+                
+                return rackList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+
         #endregion Pick list
 
         #region Account 
