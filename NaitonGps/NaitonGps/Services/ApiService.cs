@@ -28,7 +28,6 @@ namespace NaitonGps.Services
       Console.WriteLine("hello github test15!!!");
     }
 
-
     public void Test16()
     {
       Console.WriteLine("hello github test15!!!");
