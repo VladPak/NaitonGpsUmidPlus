@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
              xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
-             x:Class="NaitonGps.Views.PicklistContent"
+             x:Class="NaitonGps.Views.PicklistItems"
               
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -37,7 +37,7 @@
 
             <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,-10,0,0', ExtraSmall='0,0,0,0'}">
                 <ScrollView VerticalScrollBarVisibility="Never">
-                    <CollectionView ItemsSource="{Binding PickList}" VerticalOptions="Fill" VerticalScrollBarVisibility="Never" HeightRequest="100">
+                    <CollectionView ItemsSource="{Binding PickListItem}" VerticalOptions="Fill" VerticalScrollBarVisibility="Never" HeightRequest="100">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>

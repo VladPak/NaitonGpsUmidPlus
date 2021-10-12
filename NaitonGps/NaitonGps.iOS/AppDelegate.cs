@@ -39,7 +39,7 @@ namespace NaitonGps.iOS
                 CookieStorage.DeleteCookie(cookie);
             }
 
-            LoadApplication(new App());
+            LoadApplication(new NaitonGps.Application());
             return base.FinishedLaunching(app, options);
         }
     }

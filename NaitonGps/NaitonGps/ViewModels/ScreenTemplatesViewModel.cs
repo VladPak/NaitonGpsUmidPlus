@@ -13,15 +13,15 @@ namespace NaitonGps.ViewModels
 {
     public class ScreenTemplatesViewModel
     {
-        public List<Screens> screens { get; set; }
+        public List<Screens> Screens { get; set; }
 
         public ScreenTemplatesViewModel()
         {
-            screens = new List<Screens>
+            Screens = new List<Screens>
             {
                 new Screens
                 {
-                    screenNumber = 1, ScreenTitle = "BalanceSheetForm", ScreenImage = "picklist.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    screenNumber = 1, ScreenTitle = "BalanceSheetForm", ScreenImage = "picklist.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {

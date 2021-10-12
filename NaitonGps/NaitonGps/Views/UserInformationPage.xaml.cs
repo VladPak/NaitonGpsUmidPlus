@@ -23,7 +23,7 @@ namespace NaitonGps.Views
         public UserInformationPage()
         {
             InitializeComponent();
-            UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
+            UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
 
             //userEmail.Text = userLoginDetails.appVersion;
             userEmail.Text = SessionContext.Token;
@@ -38,15 +38,15 @@ namespace NaitonGps.Views
         {
             await Navigation.PopPopupAsync();
 
-            Application.Current.Properties["IsLoggedIn"] = Boolean.FalseString;
+            Xamarin.Forms.Application.Current.Properties["IsLoggedIn"] = bool.FalseString;
 
             if (isSmallScreen)
             {
-                Application.Current.MainPage = new NavigationPage(new LoginScreenNaiton());
+                Xamarin.Forms.Application.Current.MainPage = new NavigationPage(new LoginScreenNaiton());
             }
             else if (isBigScreen)
             {
-                Application.Current.MainPage = new NavigationPage(new LoginScreenNaitonBigScreen());
+                Xamarin.Forms.Application.Current.MainPage = new NavigationPage(new LoginScreenNaitonBigScreen());
             }
 
             await Navigation.PopToRootAsync();

@@ -26,13 +26,7 @@ namespace NaitonGps.Models
             }
         }
 
-        //public string Name { get; set; }
-        //public int Quantity { get; set; }
-        //public string Subname { get; set; }
-        //public string Sizes { get; set; }
-        //public string RackAllocation { get; set; }
-
-        Dictionary<int, string> listColors = new Dictionary<int, string>
+        readonly Dictionary<int, string> listColors = new Dictionary<int, string>
         {
             {-1,"Gray" },
             { 0,"White"},

@@ -68,7 +68,7 @@ namespace NaitonGps.Views
                             //{
                             //Application.Current.MainPage = new MainPage();
                             Preferences.Set("token", SessionContext.Token);
-                            Application.Current.MainPage = new MainNavigationPage();
+                            Xamarin.Forms.Application.Current.MainPage = new MainNavigationPage();
                             //}
                             //else
                             //{

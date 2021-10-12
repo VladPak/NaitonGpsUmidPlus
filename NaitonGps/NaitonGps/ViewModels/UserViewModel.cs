@@ -29,83 +29,83 @@ namespace NaitonGps.ViewModels
             {
                 new Screens
                 {
-                    ScreenTitle = "AccountingReportsDiagnosticReports", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "AccountingReportsDiagnosticReports", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "AccountingReportsDiagnosticReports3", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "AccountingReportsDiagnosticReports3", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "BalanceSheetForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "BalanceSheetForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "DublicateContentFormInternalTransport", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "DublicateContentFormInternalTransport", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "InvalidEmailAddressesForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "InvalidEmailAddressesForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "NaitonTranslation", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "NaitonTranslation", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "NewMainDelivery", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "NewMainDelivery", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "OrderLogForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "OrderLogForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "PerformanceScreenForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "PerformanceScreenForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReeleezeeForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReeleezeeForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "RentalOverviewForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "RentalOverviewForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum1", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum1", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum2", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum2", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum3", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum3", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum4", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum4", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum5", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum5", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum6", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum6", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum7", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum7", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum8", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum8", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
                 new Screens
                 {
-                    ScreenTitle = "ReportMenuNum9", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    ScreenTitle = "ReportMenuNum9", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },
             };
         }

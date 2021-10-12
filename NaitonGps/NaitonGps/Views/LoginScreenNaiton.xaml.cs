@@ -116,11 +116,11 @@ namespace NaitonGps.Views
                                         };
 
 
-                                        App.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
-                                        await App.Current.SavePropertiesAsync();
-                                        Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
+                                        Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
+                                        await Application.Current.SavePropertiesAsync();
+                                        Xamarin.Forms.Application.Current.Properties["IsLoggedIn"] = bool.TrueString;
 
-                                        Application.Current.MainPage = new MainNavigationPage();
+                                        Xamarin.Forms.Application.Current.MainPage = new MainNavigationPage();
                                         break;
                                     }
                                     catch (RestServiceException exRes)

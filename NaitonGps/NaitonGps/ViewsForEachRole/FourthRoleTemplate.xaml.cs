@@ -18,8 +18,9 @@ namespace NaitonGps.Views
             InitializeComponent();
         }
 
-        public async void move()
+        public async void Move()
         {
+            await Task.Run(() => new FourthRoleTemplate());
             //await Content.TranslateTo(0, -300, 30, Easing.Linear);
             //await Header.TranslateTo(0, -300, 30, Easing.Linear);
             //Header.IsVisible = true;

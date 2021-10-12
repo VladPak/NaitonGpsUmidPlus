@@ -29,7 +29,7 @@ namespace NaitonGps.Views
     public partial class MainNavigationPage : ContentPage
     {
         //Menu construction props
-        ControlTemplate defaultTemp = new ControlTemplate(typeof(DefaultTemplate));
+        readonly ControlTemplate defaultTemp = new ControlTemplate(typeof(DefaultTemplate));
         public int maxIndex;
         public int minIndex = 1;
         private int selectedIndex;
@@ -41,9 +41,9 @@ namespace NaitonGps.Views
         public List<Screens> res;
 
         //Screen size consideration for UI layout
-        public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool isSmallScreen { get; } = screenWidth <= 360;
-        public static bool isBigScreen { get; } = screenWidth >= 360;
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
 
 
         public MainNavigationPage()
@@ -76,7 +76,7 @@ namespace NaitonGps.Views
             }
 
             //When app is launched L/D mode
-            if (Application.Current.RequestedTheme == OSAppTheme.Light)
+            if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Light)
             {
                 allNavItems[0].TintColor = Color.Green;
                 var allButFirst = allNavItems.Skip(1).Take(4).ToArray();
@@ -85,7 +85,7 @@ namespace NaitonGps.Views
                     item.TintColor = Color.FromHex("#69717E");
                 }
             }
-            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+            else if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark)
             {
                 allNavItems[0].TintColor = Color.Green;
                 var allButFirst = allNavItems.Skip(1).Take(4).ToArray();
@@ -96,7 +96,7 @@ namespace NaitonGps.Views
             }
 
             //Coloring the navbar btns after switching the display mode light/dark
-            Application.Current.RequestedThemeChanged += (s, a) =>
+            Xamarin.Forms.Application.Current.RequestedThemeChanged += (s, a) =>
             {
                 switch (a.RequestedTheme)
                 {
@@ -129,12 +129,12 @@ namespace NaitonGps.Views
 
         public async void SetMenuItems()
         {
-            bool isLoggedIn = App.Current.Properties.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(App.Current.Properties["IsLoggedIn"]) : false;
+            bool isLoggedIn = Xamarin.Forms.Application.Current.Properties.ContainsKey("IsLoggedIn") && Convert.ToBoolean(Application.Current.Properties["IsLoggedIn"]);
 
             if (!isLoggedIn)
             {
                 await DisplayAlert("", "Oops access denied. (MainNavigationPage)", "Ok");
-                Application.Current.Quit();
+                Xamarin.Forms.Application.Current.Quit();
             }
             else
             {
@@ -158,8 +158,8 @@ namespace NaitonGps.Views
                             //Get number of screens allowed for user (21)
                             int numOfScreens = item.Count();
                             //Sort the received screens with the existing list
-                            var countScreens = Screens.screens.Count();
-                            res = Screens.screens.Where(screen => item.Any(title => title.Object.Equals(screen.ScreenTitle))).ToList();
+                            var countScreens = Screens.Screens.Count();
+                            res = Screens.Screens.Where(screen => item.Any(title => title.Object.Equals(screen.ScreenTitle))).ToList();
 
                             //Count the sorted list of screens
                             var resC = res.Count();
@@ -242,7 +242,7 @@ namespace NaitonGps.Views
                                                             allNavItems[4].IsVisible = true;
                                                             break;
                                                         default:
-                                                            DisplayAlert("", "Oops smth wront!", "Ok");
+                                                            _ = DisplayAlert("", "Oops smth wront!", "Ok");
                                                             break;
                                                     }
                                                     int skipMenuItems = sublist.Count();
@@ -316,7 +316,7 @@ namespace NaitonGps.Views
                                                             allNavItems[4].IsVisible = true;
                                                             break;
                                                         default:
-                                                            DisplayAlert("", "Oops smth wront!", "Ok");
+                                                            _ = DisplayAlert("", "Oops smth wront!", "Ok");
                                                             break;
                                                     }
                                                     int skipMenuItems = sublist.Count();
@@ -389,7 +389,7 @@ namespace NaitonGps.Views
                                                             allNavItems[4].IsVisible = true;
                                                             break;
                                                         default:
-                                                            DisplayAlert("", "Oops smth wront!", "Ok");
+                                                            _ = DisplayAlert("", "Oops smth wront!", "Ok");
                                                             break;
                                                     }
                                                     int skipMenuItems = sublist.Count();
@@ -463,7 +463,7 @@ namespace NaitonGps.Views
                                                             allNavItems[4].IsVisible = true;
                                                             break;
                                                         default:
-                                                            DisplayAlert("", "Oops smth wront!", "Ok");
+                                                            _ = DisplayAlert("", "Oops smth wront!", "Ok");
                                                             break;
                                                     }
                                                     int skipMenuItems = sublist.Count();
@@ -563,7 +563,7 @@ namespace NaitonGps.Views
                                         }
                                         break;
                                     default:
-                                        DisplayAlert("", "No attached index for the menu", "Ok");
+                                        _ = DisplayAlert("", "No attached index for the menu", "Ok");
                                         btnLeftArrow.IsVisible = false;
                                         btnRightArrow.IsVisible = false;
                                         break;
@@ -571,7 +571,7 @@ namespace NaitonGps.Views
                             }
                             else
                             {
-                                DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
+                                _ = DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
                                 ControlTemplate = defaultTemp;
                                 selectedIndex = 1;
                             }
@@ -1046,7 +1046,7 @@ namespace NaitonGps.Views
             {
                 PreviousContent();
                 SetMenuItems();
-                moveMenu();
+                MoveMenu();
                 VibrationForNav();
             }
         }
@@ -1063,7 +1063,7 @@ namespace NaitonGps.Views
             {
                 NextContent();
                 SetMenuItems();
-                moveMenu();
+                MoveMenu();
                 VibrationForNav();
             }
         }
@@ -1073,7 +1073,7 @@ namespace NaitonGps.Views
         {
             PreviousContent();
             SetMenuItems();
-            moveMenu();
+            MoveMenu();
             VibrationForNav();
         }
 
@@ -1082,12 +1082,12 @@ namespace NaitonGps.Views
         {
             NextContent();
             SetMenuItems();
-            moveMenu();
+            MoveMenu();
             VibrationForNav();
         }
 
         //Navigation menu animation
-        public async void moveMenu()
+        public async void MoveMenu()
         {
             await bottomNavMenu.TranslateTo(0, 200, 200, Easing.Linear);
             await bottomNavMenu.TranslateTo(0, 0);
@@ -1095,12 +1095,12 @@ namespace NaitonGps.Views
             TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
             for (int i = 0; i < images.Length; i++)
             {
-                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Light)
                 {
                     images[0].TintColor = Color.Green;
                      images[i].TintColor = Color.FromHex("#69717E");
                 }
-                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                else if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {
                     images[0].TintColor = Color.Green;
                     images[i].TintColor = Color.White;
@@ -1111,7 +1111,7 @@ namespace NaitonGps.Views
         //Navigation functions
         public void NextContent()
         {
-            selectedIndex = selectedIndex + 1;
+            selectedIndex++;
           
             if (selectedIndex > maxIndex)
             {
@@ -1121,7 +1121,7 @@ namespace NaitonGps.Views
 
         public void PreviousContent()
         {
-            selectedIndex = selectedIndex - 1;
+            selectedIndex--;
            
             if (selectedIndex < minIndex)
             {
@@ -1138,11 +1138,11 @@ namespace NaitonGps.Views
             
             foreach (var imgToDefaultColor in allNavItems)
             {
-                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Light)
                 {
                     imgToDefaultColor.TintColor = Color.FromHex("#69717E");
                 }
-                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                else if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {
                     imgToDefaultColor.TintColor = Color.White;
                 }

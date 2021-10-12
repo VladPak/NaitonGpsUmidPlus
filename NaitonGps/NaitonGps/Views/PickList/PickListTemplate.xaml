@@ -4,7 +4,7 @@
       xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
       xmlns:common="clr-namespace:NaitonGps.Views;assembly=NaitonGps"
       xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
-      x:Class="NaitonGps.Views.FirstRoleTemplate" 
+      x:Class="NaitonGps.Views.PickListTemplate" 
       NavigationPage.HasNavigationBar="False"
       xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
       iOS:Page.UseSafeArea="true"
@@ -62,7 +62,7 @@
                                         <controls:TintedImage BackgroundColor="Transparent" Source="rightarrow.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" TintColor="{StaticResource colorGrayStatic}"></controls:TintedImage>
                                     </Grid>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="PicklistContentPage" NumberOfTapsRequired="1"/>
+                                        <TapGestureRecognizer Tapped="PicklistContentPage" NumberOfTapsRequired="1" CommandParameter="{Binding Path=PickListId}" />
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>
