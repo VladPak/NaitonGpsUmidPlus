@@ -10,6 +10,7 @@ namespace TheNextLoop.Markups.Enums
         /// Extra pequeno
         /// </summary>
         ExtraSmall = 1,
+        DefaultSize = 7,
         /// <summary>
         /// Pequeno
         /// </summary>

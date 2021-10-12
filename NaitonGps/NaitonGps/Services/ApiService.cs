@@ -16,20 +16,30 @@ namespace NaitonGps.Services
         {
             string webservice = String.Format("https://connectionprovider.naiton.com/DataAccess/{0}/restservice/address", webserviceLink);
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(webservice);
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var rsToString = responseContent.ToString();
-            Preferences.Set("webservicelink", rsToString);
+            try
+            {
+                var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(webservice);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var rsToString = responseContent.ToString();
+            
+                Preferences.Set("webservicelink", rsToString);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                return false;
+                if (!response.IsSuccessStatusCode)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return true;
+                Console.WriteLine(ex.ToString());
             }
+
+            return false;
         }
 
         public class WebServiceSuccessResponse<TSuccess, TError>

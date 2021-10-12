@@ -432,4 +432,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\technology.png" />
   </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionNaitonGpsiOSHideInfoBar="True" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

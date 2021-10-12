@@ -25,8 +25,8 @@ namespace NaitonGps.Views
             InitializeComponent();
             UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
 
-            //userEmail.Text = userLoginDetails.appVersion;
-            userEmail.Text = SessionContext.Token;
+            userEmail.Text = userLoginDetails.userToken;
+            //userEmail.Text = SessionContext.Token;
         }
 
         private async void Close(object sender, EventArgs e)

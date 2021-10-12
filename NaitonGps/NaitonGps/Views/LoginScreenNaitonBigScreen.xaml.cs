@@ -127,8 +127,8 @@ namespace NaitonGps.Views
                                             appId = SessionContext.AppId,
                                             appVersion = SessionContext.AppVersion,
                                             isEncrypted = SessionContext.IsEncrypted,
-                                            restServiceAddress = "https://connectionprovider.naiton.com/",
-                                            domain = Preferences.Get("webservicelink", string.Empty)
+                                            connectionProviderAddress = "https://connectionprovider.naiton.com/",
+                                            domain = SessionContext.Domain
                                         };
                                         
                                         Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);

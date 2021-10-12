@@ -8,7 +8,7 @@
       
       RowDefinitions="*" ColumnDefinitions="*, *, *"
     >
-    <Image x:Name="iconUser" Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png}"  WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" HorizontalOptions="Start" Margin="15,0,0,0">
+    <Image x:Name="iconUser" Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png}"  WidthRequest="{markups:OnScreenSize DefaultSize='30', Medium='30', ExtraSmall='25'}" HeightRequest="{markups:OnScreenSize DefaultSize='30', Medium='30', ExtraSmall='25'}" HorizontalOptions="Start" Margin="15,0,0,0">
         <Image.GestureRecognizers>
             <TapGestureRecognizer Tapped="UserInfo"></TapGestureRecognizer>
         </Image.GestureRecognizers>
@@ -16,7 +16,7 @@
 
     <Image Grid.Column="1" Grid.Row="0" Source="logoNavbar.png" HorizontalOptions="Center"></Image>
 
-    <Image x:Name="iconNotification" Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png }" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" HorizontalOptions="End" Margin="0,0,15,0">
+    <Image x:Name="iconNotification" Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png }" HeightRequest="{markups:OnScreenSize DefaultSize='30', Medium='30', ExtraSmall='25'}" WidthRequest="{markups:OnScreenSize DefaultSize='30', Medium='30', ExtraSmall='25'}" HorizontalOptions="End" Margin="0,0,15,0">
         <Image.GestureRecognizers>
             <TapGestureRecognizer Tapped="Notifications"></TapGestureRecognizer>
         </Image.GestureRecognizers>

@@ -55,7 +55,7 @@
 
                                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
                                             <Label FontAttributes="Bold" Text="{Binding Path=Racks, StringFormat='Qty {0} &#x2022;'}" FontSize="15" TextColor="#000000"/>
-                                            <Label FontAttributes="Bold" Text="{Binding Path=Weight, StringFormat='{0} kg'}" FontSize="15" TextColor="#000000"/>
+                                            <Label FontAttributes="Bold" Text="{Binding Path=Weight, StringFormat='{0:0.0} kg'}" FontSize="15" TextColor="#000000"/>
                                         </StackLayout>
 
                                         <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" TextColor="#5c5c5c" Grid.ColumnSpan="2" Grid.RowSpan="2" WidthRequest="100" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding PickerName}" FontSize="14" HorizontalOptions="End" FontAttributes="None"/>

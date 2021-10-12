@@ -55,7 +55,19 @@ namespace TheNextLoop.Markups
         /// <summary>
         /// Tamanho-padrao na tela que deve ser assumido quando não for possivel determinar o tamanho dela com base na lista <see cref="_screenSizes"/>
         /// </summary>
-        public object DefaultSize { get; set; } 
+        public object DefaultSize { get; set; }
+
+        //public object DefaultSize 
+        //{
+        //    get
+        //    {
+        //        return _values[eScreenSizes.DefaultSize];
+        //    }
+        //    set
+        //    {
+        //        _values[eScreenSizes.DefaultSize] = value;
+        //    }
+        //}
 
 
         public object ExtraSmall
@@ -70,7 +82,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.ExtraSmall] = value;
             }
         }
-
         public object Small
         {
             get
@@ -95,7 +106,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.Medium] = value;
             }
         }
-
         public object Large
         {
             get
@@ -108,7 +118,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.Large] = value;
             }
         }
-
         public object ExtraLarge
         {
             get
@@ -121,7 +130,6 @@ namespace TheNextLoop.Markups
                 _values[eScreenSizes.ExtraLarge] = value;
             }
         }
-
 
 
         public object ProvideValue(IServiceProvider serviceProvider)
@@ -149,7 +157,6 @@ namespace TheNextLoop.Markups
             return value.ConvertTo(propertyType, bp);
         }
 
-
         private object GetValue(IServiceProvider serviceProvider)
         {
             var screenSize = GetScreenSize();
@@ -163,7 +170,9 @@ namespace TheNextLoop.Markups
 
             if (DefaultSize == null)
             {
-                throw new XamlParseException("OnScreenExtension requires a DefaultSize set.");
+                //throw new XamlParseException("OnScreenExtension requires a DefaultSize set.");
+                return DefaultSize;
+
             }
             else
             {
