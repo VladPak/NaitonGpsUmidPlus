@@ -12,7 +12,7 @@ namespace NaitonGps.ViewModels
     {
         public ICommand RefreshCommand { protected set; get; }
 
-        public List<PickListItem> PickListItem { get; set; }
+        public List<PickListItem> PickListItems { get; set; }
 
 
         bool _isRefreshing = false;
@@ -37,11 +37,11 @@ namespace NaitonGps.ViewModels
 
         public PicklistContentDataViewModel(List<PickListItem> pickListItems)
         {
-            PickListItem = pickListItems;
+            PickListItems = pickListItems;
 
             RefreshCommand = new Command<string>((key) =>
             {
-                PickListItem = pickListItems;
+                PickListItems = pickListItems;
                 IsRefreshing = false;
             });
         }

@@ -1,4 +1,6 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using NaitonGps.Helpers;
+using NaitonGps.ViewModels;
+using Rg.Plugins.Popup.Services;
 using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -9,13 +11,16 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PicklistContentEdit : ContentPage
     {
+        private readonly int pListId;
         public string modeResult = Preferences.Get("userMode", string.Empty);
 
-        public PicklistContentEdit()
+        public PicklistContentEdit(int pickListId)
         {
+            pListId = pickListId;
             CloseAllPopup();
             InitializeComponent();
-            BindingContext = new Models.PickList();
+            var pickListItems = DataManager.GetPickListItems(pickListId);
+            BindingContext = new PicklistContentDataViewModel(pickListItems);
 
             switch (modeResult)
             {
@@ -44,8 +49,7 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            await DisplayAlert("", "Save And Print", "Ok");
-            //await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
+            await DisplayAlert("", "Save and Print", "Ok");            
         }
 
         public async void CloseAllPopup()

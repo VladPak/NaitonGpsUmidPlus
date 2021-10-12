@@ -13,21 +13,21 @@ namespace NaitonGps
 {
     public partial class Application : Xamarin.Forms.Application
     {
-        public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool isSmallScreen { get; } = screenWidth <= 480;
-        public static bool isBigScreen { get; } = screenWidth >= 480;
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 480;
 
         public Application()
         {
             InitializeComponent();
         }
 
-        protected override async void OnStart()
+        protected override void OnStart()
         {
             base.OnStart();
-            bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Current.Properties["IsLoggedIn"]) : false;
+            bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") && Convert.ToBoolean(Current.Properties["IsLoggedIn"]);
 
-            if (isSmallScreen)
+            if (IsSmallScreen)
             {
                 if (!isLoggedIn)
                 {
@@ -41,7 +41,7 @@ namespace NaitonGps
                     MainPage = nav;
                 }
             }
-            else if (isBigScreen)
+            else if (IsBigScreen)
             {
                 if (!isLoggedIn)
                 {

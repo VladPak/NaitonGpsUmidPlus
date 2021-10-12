@@ -89,7 +89,7 @@
     <EmbeddedResource Update="ViewsForEachRole\SalesExThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AssignPicklistPopUp.xaml">
+    <EmbeddedResource Update="Views\PickList\AssignPicklistPopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="ViewsForEachRole\FifthRoleTemplate.xaml">

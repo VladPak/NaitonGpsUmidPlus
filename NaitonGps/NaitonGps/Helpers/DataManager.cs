@@ -19,28 +19,9 @@ namespace NaitonGps.Helpers
         {
             try
             {
-                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getdeliveries");
-                command.Parameters.Add("_deliveryid", PgsqlDbType.Integer | PgsqlDbType.Array, DBNull.Value);
-                command.Parameters.Add("_productid", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_productname", PgsqlDbType.Varchar, "");
-                command.Parameters.Add("_clientname", PgsqlDbType.Varchar, "");
-                command.Parameters.Add("_clientid", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_companyname", PgsqlDbType.Varchar, "");
-                command.Parameters.Add("_deliverystatus", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_dpdatefrom", PgsqlDbType.Timestamp, DBNull.Value);
-                command.Parameters.Add("_dpdateto", PgsqlDbType.Timestamp, DBNull.Value);
-                command.Parameters.Add("_shipmentfrom", PgsqlDbType.Timestamp, DBNull.Value);
-                command.Parameters.Add("_shipmentto", PgsqlDbType.Timestamp, DBNull.Value);
-                command.Parameters.Add("_businessids", PgsqlDbType.Integer | PgsqlDbType.Array, new int[] { 1 });
-                command.Parameters.Add("_deliverycompany", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_picklistids", PgsqlDbType.Integer | PgsqlDbType.Array, new int[] { pickListId });
-                command.Parameters.Add("_orderid", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_paymentmethodid", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_brandid", PgsqlDbType.Integer, 0);                
-                command.Parameters.Add("_stockid", PgsqlDbType.Integer, 1);
-                command.Parameters.Add("_categoryid", PgsqlDbType.Integer, 0);
-                command.Parameters.Add("_limit", PgsqlDbType.Integer, 100);
-                command.Parameters.Add("_rackname", PgsqlDbType.Varchar, "");
+                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpicklistracks");                
+                command.Parameters.Add("_picklistids", PgsqlDbType.Integer | PgsqlDbType.Array, new int[] { pickListId });                
+                command.Parameters.Add("_limit", PgsqlDbType.Integer, 100);                
 
                 command.WriteSchema = WriteSchema.TRUE;
                 string xmlResult = SimpleWSA.Command.Execute(command,

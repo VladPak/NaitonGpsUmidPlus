@@ -3,10 +3,11 @@
     public class PickListItem
     {
         public int PickListId { get; set; }
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-        public string Subname { get; set; }
-        public string Sizes { get; set; }
-        public string RackAllocation { get; set; }
+        public int PickListOrderDetailsId { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal Quantity { get; set; }        
+        public string RackName { get; set; }
+        public string Sizes { get; set; }        
     }
 }

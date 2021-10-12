@@ -18,16 +18,16 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PicklistItems : ContentPage
     {
+        private readonly int pListId;
+
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
         public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
         public static bool IsBigScreen { get; } = ScreenWidth >= 480;
-
         
-
         public PicklistItems(int pickListId)
         {
             InitializeComponent();
-
+            pListId = pickListId;
             var pickListItems = DataManager.GetPickListItems(pickListId);
             BindingContext = new PicklistContentDataViewModel(pickListItems);
         }
@@ -42,10 +42,9 @@ namespace NaitonGps.Views
             await DisplayAlert("", "The filter btn clicked", "Ok");
         }
 
-        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
-        {
-            //DisplayAlert("", "Call popUp", "Ok");
-            await PopupNavigation.Instance.PushAsync(new AssignPicklistPopUp());
+        private async void StartPicking(object sender, EventArgs e)
+        {            
+            await PopupNavigation.Instance.PushAsync(new AssignPicklistPopUp(pListId));
         }
 
         private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)

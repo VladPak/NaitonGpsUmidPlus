@@ -15,10 +15,12 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssignPicklistPopUp : PopupPage
     {
+        private readonly int pListId;
         public string mode;
-        public AssignPicklistPopUp()
+        public AssignPicklistPopUp(int pickListId)
         {
             InitializeComponent();
+            pListId = pickListId;
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
@@ -28,21 +30,21 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            _ = new AssignPicklistPopUp();
+            _ = new AssignPicklistPopUp(pListId);
             mode = "readOnly";
             Preferences.Set("userMode", mode);
             //await Navigation.RemovePopupPageAsync(currentPage);
-            await Navigation.PushModalAsync(new PicklistContentEdit());
+            await Navigation.PushModalAsync(new PicklistContentEdit(pListId));
 
         }
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            _ = new AssignPicklistPopUp();
+            _ = new AssignPicklistPopUp(pListId);
             mode = "readAndEdit";
             Preferences.Set("userMode", mode);
             //await Navigation.RemovePopupPageAsync(currentPage);
-            await Navigation.PushModalAsync(new PicklistContentEdit());
+            await Navigation.PushModalAsync(new PicklistContentEdit(pListId));
 
         }
 
