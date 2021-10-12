@@ -22,6 +22,7 @@ using NaitonGps.Services;
 using System.IO;
 using MoreLinq.Extensions;
 using Plugin.CrossPlatformTintedImage.Abstractions;
+using NaitonGps.Helpers;
 
 namespace NaitonGps.Views
 {
@@ -142,16 +143,8 @@ namespace NaitonGps.Views
                 {
                     try
                     {
-                        SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-                        command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 2;
-                        command.WriteSchema = WriteSchema.TRUE;
-                        string xmlResult = SimpleWSA.Command.Execute(command,
-                                                            RoutineType.DataSet,
-                                                            httpMethod: SimpleWSA.HttpMethod.GET,
-                                                            responseFormat: ResponseFormat.JSON);
-
-                        var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
-                        var allRoles = dataFinalize.Values.ToList();
+                        DataManager.SetUserData(out int roleId);
+                        var allRoles = DataManager.GetRoles(roleId);
 
                         foreach (var item in allRoles)
                         {

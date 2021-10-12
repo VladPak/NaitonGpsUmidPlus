@@ -107,31 +107,18 @@ namespace NaitonGps.Views
                                     try
                                     {
                                         string currentAppVersion = VersionTracking.CurrentVersion;
-                                        string currentAppVersion1 = "1";
                                         Session session = new Session(userEmail,
-                                                                        entPassword.Text,
+                                                                        userPassword,
                                                                         false,
                                                                         4,
-                                                                        currentAppVersion1,
+                                                                        currentAppVersion,
                                                                         Preferences.Get("loginCompany", string.Empty),
                                                                         null);
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
 
-                                        Preferences.Set("token", SessionContext.Token);
-
-                                        UserLoginDetails userLoginDetails = new UserLoginDetails
-                                        {
-                                            userEmail = SessionContext.Login,
-                                            userPassword = SessionContext.Password,
-                                            userToken = SessionContext.Token,
-                                            appId = SessionContext.AppId,
-                                            appVersion = SessionContext.AppVersion,
-                                            isEncrypted = SessionContext.IsEncrypted,
-                                            connectionProviderAddress = "https://connectionprovider.naiton.com/",
-                                            domain = SessionContext.Domain
-                                        };
+                                        var user = DataManager.RegistrationServiceSession();
                                         
-                                        Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
+                                        Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(user);
                                         await Application.Current.SavePropertiesAsync();
                                         Xamarin.Forms.Application.Current.Properties["IsLoggedIn"] = bool.TrueString;
 

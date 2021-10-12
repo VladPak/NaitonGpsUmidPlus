@@ -50,34 +50,8 @@ namespace NaitonGps
                 }
                 else
                 {
-                    try
-                    {
-                        var response = await ApiService.GetWebService("naitongps");
-                        if (response)
-                        {
-                            UserLoginDetails userData = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
-
-                            Session session = new Session(userData.userEmail,
-                                                            userData.userPassword,
-                                                            userData.isEncrypted,
-                                                            userData.appId,
-                                                            userData.appVersion,
-                                                            userData.domain,
-                                                            null);
-
-                            await session.CreateByConnectionProviderAddressAsync(userData.restServiceAddress);
-                            var nav = new NavigationPage(new MainNavigationPage());
-                            MainPage = nav;
-                        }
-                        else
-                        {
-                            await Application.Current.MainPage.DisplayAlert("", "Ghtun", "Ok");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        await Application.Current.MainPage.DisplayAlert("", ex.Message, "Ok");
-                    }
+                    var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
+                    MainPage = nav;
                 }
             }
         }
