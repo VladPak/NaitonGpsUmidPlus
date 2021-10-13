@@ -24,28 +24,7 @@
 
             <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="3" x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
             <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" x:Name="imgLogo" Source="logoMain.png"></Image>
-
-            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*" BackgroundColor="Transparent">
-
-                <Frame VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" BackgroundColor="#ffffff" CornerRadius="9" BorderColor="#268646" HasShadow="False" WidthRequest="100" HeightRequest="100">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="Continue Session" FontSize="17" TextColor="#268646" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                    </Frame.GestureRecognizers>
-                </Frame>
-
-                <Frame VerticalOptions="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" BackgroundColor="#ffffff" CornerRadius="9" BorderColor="#268646" HasShadow="False" WidthRequest="100" HeightRequest="100">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="Log out" FontSize="17" TextColor="#268646" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                    </Frame.GestureRecognizers>
-                </Frame>
-
-            </Grid>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>
