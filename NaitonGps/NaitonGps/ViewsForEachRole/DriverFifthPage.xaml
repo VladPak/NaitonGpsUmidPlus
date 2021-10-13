@@ -3,16 +3,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
       xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
       xmlns:common="clr-namespace:NaitonGps.Views;assembly=NaitonGps"
-      xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
       x:Class="NaitonGps.ViewsForEachRole.Driver.DriverFifthPage"
       NavigationPage.HasNavigationBar="False"
       xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
       iOS:Page.UseSafeArea="true"
       iOS:Page.PrefersStatusBarHidden="Default"
       iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-      Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,10', ExtraSmall='5, 20, 5, 15'}"
       RowDefinitions="0.6*, 6*, 0.4*" 
       ColumnDefinitions="*, Auto, *"
+      x:Name="mainGrid"
+      Margin="10, 0, 10, 10"
 >
     <!-- #region Header -->
     <common:HeaderNavigationBar Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" x:Name="Header" IsVisible="true">

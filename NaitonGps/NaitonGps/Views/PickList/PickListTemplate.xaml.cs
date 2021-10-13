@@ -6,6 +6,7 @@ using SimpleWSA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,9 +15,24 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickListTemplate : Grid
     {
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+
         public PickListTemplate()
         {
             InitializeComponent();
+
+            if (IsSmallScreen)
+            {
+                mainGridd.Margin = new Thickness(5,20,5,15);
+                rowToAdjust.Height = new GridLength(0.7, GridUnitType.Star);
+            }
+            else if (IsBigScreen)
+            {
+                mainGridd.Margin = new Thickness(10, 0, 10, 10);
+                rowToAdjust.Height = new GridLength(0.4, GridUnitType.Star);
+            }
 
             var pickList = DataManager.GetPickLists();
             BindingContext = new PickListViewModel(pickList);

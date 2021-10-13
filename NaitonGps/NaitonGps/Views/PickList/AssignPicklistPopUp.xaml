@@ -2,7 +2,6 @@
 <pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-             xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
              x:Class="NaitonGps.Views.AssignPicklistPopUp"     
              >
     <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
@@ -18,28 +17,28 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image Source="closePopup.png" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='23'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='23'}" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start">
+            <Image x:Name="closePop" Source="closePopup.png" WidthRequest="30" HeightRequest="30" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start" Spacing="{markups:OnScreenSize DefaultSize='Auto', Medium='20', ExtraSmall='10'}">
-                <Label Text="Assign to you?" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='25', ExtraSmall='18'}" VerticalOptions="Center" HorizontalOptions="Center" CharacterSpacing="1.5"></Label>
-                <Label Text="Press 'NO' for view and 'Assign' for view and edit" HorizontalTextAlignment="Center" FontAttributes="None" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='16', ExtraSmall='13'}" CharacterSpacing="1.3" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <StackLayout x:Name="slChange" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start" Spacing="20">
+                <Label x:Name="lblAssign" Text="Assign to you?" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25" VerticalOptions="Center" HorizontalOptions="Center" CharacterSpacing="1.5"></Label>
+                <Label x:Name="lblPress" Text="Press 'NO' for view and 'Assign' for view and edit" HorizontalTextAlignment="Center" FontAttributes="None" FontSize="16" CharacterSpacing="1.3" VerticalOptions="Center" HorizontalOptions="Center"></Label>
             </StackLayout>
 
-            <Frame VerticalOptions="Center" Grid.Row="2" Grid.Column="0" BackgroundColor="#ffffff" CornerRadius="9" BorderColor="#E7E7E8" HasShadow="False" WidthRequest="100" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='19'}">
-                        <Label Text="No" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='18', ExtraSmall='15'}" TextColor="#000000" FontAttributes="None" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Frame x:Name="frameWW" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" BackgroundColor="#ffffff" CornerRadius="9" BorderColor="#E7E7E8" HasShadow="False" WidthRequest="100" HeightRequest="30">
+                        <Label x:Name="LblNooo" Text="No" FontSize="18" TextColor="#000000" FontAttributes="None" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame VerticalOptions="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BackgroundColor="#187CBC" CornerRadius="9" BorderColor="#187CBC" HasShadow="False" WidthRequest="80" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='19'}">
+            <Frame x:Name="frameChange" VerticalOptions="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BackgroundColor="#187CBC" CornerRadius="9" BorderColor="#187CBC" HasShadow="False" WidthRequest="80" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                     <Image Source="btnPopup.png" HeightRequest="22" VerticalOptions="Center" HorizontalOptions="Center"></Image>
-                    <Label Text="Assign" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='20', ExtraSmall='15'}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Label x:Name="lblAssignN" Text="Assign" FontSize="20" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>

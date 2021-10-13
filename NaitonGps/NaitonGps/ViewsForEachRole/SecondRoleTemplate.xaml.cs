@@ -13,9 +13,22 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SecondRoleTemplate : Grid
     {
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
         public SecondRoleTemplate()
         {
             InitializeComponent();
+
+            if (IsSmallScreen)
+            {
+                mainGrid.Margin = new Thickness(5, 20, 5, 15);
+            }
+            else if (IsBigScreen)
+            {
+                mainGrid.Margin = new Thickness(10, 0, 10, 10);
+
+            }
         }
 
         public async void Move()

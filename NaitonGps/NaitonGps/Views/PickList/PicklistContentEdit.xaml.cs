@@ -17,13 +17,45 @@ namespace NaitonGps.Views
         private readonly int pListId;
         private readonly List<PickListItem> items;
         public string modeResult = Preferences.Get("userMode", string.Empty);
-        
+
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+
+
         public PicklistContentEdit(int pickListId)
         {            
             pListId = pickListId;
             items= DataManager.GetPickListItems(pListId);
             CloseAllPopup();
-            InitializeComponent();            
+            InitializeComponent();
+
+            if (IsSmallScreen)
+            {
+                mainGrid.Margin = new Thickness(10,15,10,20);
+                rowToChange.Height = new GridLength(1.2, GridUnitType.Star);
+
+                imgBack.HeightRequest = 25;
+                imgBack.WidthRequest = 25;
+                lblPicklist.FontSize = 18;
+
+              
+                lblChange.FontSize = 16;
+            }
+            else if (IsBigScreen)
+            {
+                mainGrid.Margin = new Thickness(10, 0,10,0);
+                rowToChange.Height = new GridLength(1, GridUnitType.Star);
+
+                imgBack.HeightRequest = 30;
+                imgBack.WidthRequest = 30;
+
+                lblPicklist.FontSize = 22;
+
+                lblChange.FontSize = 20;
+
+            }
+
             BindingContext = new PicklistContentDataViewModel(items);
 
             switch (modeResult)

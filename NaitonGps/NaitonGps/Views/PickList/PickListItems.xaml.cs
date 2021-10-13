@@ -27,6 +27,34 @@ namespace NaitonGps.Views
         public PicklistItems(int pickListId)
         {
             InitializeComponent();
+            if (IsSmallScreen)
+            {
+                gridMain.Margin = new Thickness(10, 0, 10, 0);
+                rowToChange.Height = new GridLength(1.3, GridUnitType.Star);
+                iconBack.HeightRequest = 25;
+                iconBack.WidthRequest = 25;
+
+                iconListChange.HeightRequest = 25;
+                iconListChange.WidthRequest = 25;
+                lblHeaderTitle.FontSize = 18;
+                rv.Margin = new Thickness(0, 0, 0, 0);
+                
+            }
+            else if (IsBigScreen)
+            {
+                rv.Margin = new Thickness(0, -10, 0, 0);
+
+                gridMain.Margin = new Thickness(10, 15, 10, 20);
+                rowToChange.Height = new GridLength(1, GridUnitType.Star);
+                iconBack.HeightRequest = 30;
+                iconBack.WidthRequest = 30;
+
+                iconListChange.HeightRequest = 30;
+                iconListChange.WidthRequest = 30;
+                lblHeaderTitle.FontSize = 22;
+
+            }
+
             pListId = pickListId;
             var pickListItems = DataManager.GetPickListItems(pickListId);
             BindingContext = new PicklistContentDataViewModel(pickListItems);

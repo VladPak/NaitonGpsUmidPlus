@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,11 +14,56 @@ namespace NaitonGps.Views
     public partial class PicklistPrintLabelsBottomPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
         public int initialValue = 0;
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
 
         public PicklistPrintLabelsBottomPopup()
         {
             InitializeComponent();
-            entQuantity.Text = initialValue.ToString();    
+            entQuantity.Text = initialValue.ToString();
+
+            if (IsSmallScreen)
+            {
+                mainGrid.Margin = new Thickness(0, 0, 0, 0);
+                mainGrid.RowSpacing = 8;
+
+
+                rowChange2.Height = new GridLength(0.4, GridUnitType.Star);
+                rowChange5.Height = new GridLength(0.4, GridUnitType.Star);
+                imgCloseP.HeightRequest = 23;
+                imgCloseP.WidthRequest = 23;
+
+
+                lblPrintLabels.FontSize = 20;
+                lblChangezz.FontSize = 14;
+                lblChangezz.Margin = new Thickness(0, -35, 0, 0);
+                lblNumberzz.FontSize = 14;
+                entQuantity.FontSize = 17;
+                frameToChange.HeightRequest = 20;
+                lblSave.FontSize = 15;
+            }
+            else if (IsBigScreen)
+            {
+                mainGrid.Margin = new Thickness(0, 0, 0, 15);
+                mainGrid.RowSpacing = 10;
+
+
+                rowChange2.Height = new GridLength(0.6, GridUnitType.Star);
+                rowChange5.Height = new GridLength(0.5, GridUnitType.Star);
+                imgCloseP.HeightRequest = 30;
+                imgCloseP.WidthRequest = 30;
+
+
+                lblPrintLabels.FontSize = 28;
+                lblChangezz.FontSize = 17;
+                lblChangezz.Margin = new Thickness(0, -60, 0, 0);
+                lblNumberzz.FontSize = 16;
+                entQuantity.FontSize = 20;
+                frameToChange.HeightRequest = 30;
+                lblSave.FontSize = 18;
+
+            }
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

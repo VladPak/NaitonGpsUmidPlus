@@ -15,11 +15,46 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssignPicklistPopUp : PopupPage
     {
+        public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+
         private readonly int pListId;
         public string mode;
         public AssignPicklistPopUp(int pickListId)
         {
             InitializeComponent();
+
+            if (IsSmallScreen)
+            {
+                slChange.Spacing = 10;
+                closePop.HeightRequest = 25;
+                closePop.WidthRequest = 25;
+
+                frameWW.HeightRequest = 19;
+                frameChange.HeightRequest = 19;
+                lblAssign.FontSize = 18;
+                lblPress.FontSize = 13;
+                lblAssign.FontSize = 18;
+                LblNooo.FontSize = 15;
+                lblAssignN.FontSize = 15;
+            }
+            else if (IsBigScreen)
+            {
+                closePop.HeightRequest = 30;
+                closePop.WidthRequest = 30;
+                slChange.Spacing = 20;
+
+                frameWW.HeightRequest = 30;
+                frameChange.HeightRequest = 30;
+                lblAssign.FontSize = 25;
+                lblPress.FontSize = 16;
+                lblAssign.FontSize = 25;
+                LblNooo.FontSize = 18;
+                lblAssignN.FontSize = 20;
+
+            }
+
             pListId = pickListId;
         }
 

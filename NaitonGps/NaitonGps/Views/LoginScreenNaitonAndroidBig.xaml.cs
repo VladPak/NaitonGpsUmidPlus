@@ -33,7 +33,6 @@ namespace NaitonGps.Views
             entEmail.Text = "m.aerts@upstairs.com";
             entPassword.Text = "Gromit12";
 #endif
-            scrollToActivate.IsEnabled = false;
 
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;
@@ -44,7 +43,6 @@ namespace NaitonGps.Views
         {
             await imgLogo.TranslateTo(0, -90, 280, Easing.Linear);
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
-            scrollToActivate.IsEnabled = true;
         }
 
         //Login

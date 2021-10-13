@@ -24,10 +24,8 @@ namespace NaitonGps.Views
         {
             InitializeComponent();
             UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
-            //UserDetails userDetails = JsonConvert.DeserializeObject<UserDetails>((string)Application.Current.Properties["UserLoginDetail"]);
 
             userInfoEmail.Text = "Email: " + userLoginDetails.userEmail;
-            //userInfoName.Text = "Name" + userDetails.EmployeeName;
         }
 
         private async void Close(object sender, EventArgs e)

@@ -31,7 +31,6 @@ namespace NaitonGps
             {
                 if (IsSmallScreen)
                 {
-                    //??
                     if (!isLoggedIn)
                     {
                         var nav = new NavigationPage(new LoginScreenNaiton());
@@ -47,7 +46,7 @@ namespace NaitonGps
                 {
                     if (!isLoggedIn)
                     {
-                        var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
+                        var nav = new NavigationPage(new LoginScreenNaitonAndroidBig());
                         MainPage = nav;
                     }
                     else

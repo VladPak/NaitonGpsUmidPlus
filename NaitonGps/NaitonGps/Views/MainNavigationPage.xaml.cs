@@ -59,7 +59,7 @@ namespace NaitonGps.Views
             }
             else if (IsBigScreen)
             {
-                bottomNavMenu.ColumnSpacing = 30;
+                bottomNavMenu.ColumnSpacing = 40;
             }
             selectedIndex = 1;
             SetMenuItems();
