@@ -67,7 +67,7 @@ namespace NaitonGps.Helpers
             }
         }
 
-        public static List<Rack> GetPickRacks(int deliveryOrderDetailsId)
+        public static List<Rack> GetPickRacks(int deliveryOrderDetailsId, decimal quantity)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace NaitonGps.Helpers
 
                 var rackList = dict.First().Value.ToList();
                 
-                return rackList;
+                return rackList.Where(x=>x.QuantityInStock>=quantity).ToList();
             }
             catch (Exception ex)
             {

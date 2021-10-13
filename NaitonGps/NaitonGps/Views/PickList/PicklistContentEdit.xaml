@@ -55,7 +55,7 @@
                                                     <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="20" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
                                                 </Grid>
                                                 <Frame.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                    <TapGestureRecognizer Tapped="ChangeQuantity" CommandParameter="{Binding Path=PickListOrderDetailsId}" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                                 </Frame.GestureRecognizers>
                                             </Frame>
 
@@ -67,7 +67,7 @@
                                                     <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="20" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
                                                 </Grid>
                                                 <Frame.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="ShowRackList" CommandParameter="{Binding Path=DeliveryOrderDetailsId}" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                    <TapGestureRecognizer Tapped="ShowRackList" CommandParameter="{Binding Path=PickListOrderDetailsId}" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                                 </Frame.GestureRecognizers>
                                             </Frame>
                                         </Grid>

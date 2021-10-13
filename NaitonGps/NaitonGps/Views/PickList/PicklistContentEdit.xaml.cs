@@ -1,7 +1,9 @@
 ﻿using NaitonGps.Helpers;
+using NaitonGps.Models;
 using NaitonGps.ViewModels;
 using Rg.Plugins.Popup.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -13,15 +15,16 @@ namespace NaitonGps.Views
     public partial class PicklistContentEdit : ContentPage
     {
         private readonly int pListId;
+        private readonly List<PickListItem> items;
         public string modeResult = Preferences.Get("userMode", string.Empty);
-
+        
         public PicklistContentEdit(int pickListId)
-        {
+        {            
             pListId = pickListId;
+            items= DataManager.GetPickListItems(pListId);
             CloseAllPopup();
-            InitializeComponent();
-            var pickListItems = DataManager.GetPickListItems(pickListId);
-            BindingContext = new PicklistContentDataViewModel(pickListItems);
+            InitializeComponent();            
+            BindingContext = new PicklistContentDataViewModel(items);
 
             switch (modeResult)
             {
@@ -76,14 +79,18 @@ namespace NaitonGps.Views
             await PopupNavigation.Instance.PopAllAsync();
         }
 
-        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        private async void ChangeQuantity(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
+            int id= (int)((TappedEventArgs)e).Parameter;
+            var item = items.FirstOrDefault(x => x.PickListOrderDetailsId == id);
+            await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup(ref item));
         }
 
         private async void ShowRackList(object sender, EventArgs e)
-        {
-            await PopupNavigation.Instance.PushAsync(new PicklistSearchItemBottomPopup((int)((TappedEventArgs)e).Parameter));
+        {            
+            int id = (int)((TappedEventArgs)e).Parameter;
+            var item = items.FirstOrDefault(x => x.PickListOrderDetailsId == id);
+            await PopupNavigation.Instance.PushAsync(new PicklistSearchItemBottomPopup(ref item));
         }
     }
 }

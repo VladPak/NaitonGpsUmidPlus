@@ -30,7 +30,7 @@ namespace NaitonGps.Droid
             Window.AddFlags(WindowManagerFlags.LayoutInOverscan);
 
             ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
-
+            PhantomLib.Droid.Effects.Effects.Init();
 
             LoadApplication(new Application());
         }

@@ -23,9 +23,10 @@ namespace NaitonGps.Views
         public ContinueSession()
         {
             InitializeComponent();
+            StartSession().GetAwaiter();
         }
-
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+                
+        private async Task StartSession()
         {
             try
             {
@@ -51,22 +52,6 @@ namespace NaitonGps.Views
             {
                 Console.WriteLine(ex.ToString());
             }
-        }
-
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
-        {
-            Application.Current.Properties["IsLoggedIn"] = Boolean.FalseString;
-
-            if (isSmallScreen)
-            {
-                Application.Current.MainPage = new NavigationPage(new LoginScreenNaiton());
-            }
-            else if (isBigScreen)
-            {
-                Application.Current.MainPage = new NavigationPage(new LoginScreenNaitonBigScreen());
-            }
-
-            await Navigation.PopToRootAsync();
-        }
+        }        
     }
 }
