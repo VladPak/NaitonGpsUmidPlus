@@ -31,7 +31,7 @@ namespace NaitonGps.Droid
 
             ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
             PhantomLib.Droid.Effects.Effects.Init();
-
+            
             LoadApplication(new Application());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
