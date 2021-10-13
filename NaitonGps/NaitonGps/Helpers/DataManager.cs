@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TheNextLoop.Markups;
 using Xamarin.Essentials;
 
 namespace NaitonGps.Helpers
@@ -126,7 +125,7 @@ namespace NaitonGps.Helpers
         public static void SetUserData(out int roleId)
         {
             roleId = 0;
-            UserLoginDetails dataFinalizeUserEP = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
+            UserLoginDetails dataFinalizeUserEP = JsonConvert.DeserializeObject<UserLoginDetails>((string)Application.Current.Properties["UserDetail"]);
             var userid = dataFinalizeUserEP.PersonId;
             SimpleWSA.Command commandGetAllUserData = new SimpleWSA.Command("userlogin_checklogin5");
             commandGetAllUserData.Parameters.Add("_login", PgsqlDbType.Varchar).Value = dataFinalizeUserEP.userEmail;
