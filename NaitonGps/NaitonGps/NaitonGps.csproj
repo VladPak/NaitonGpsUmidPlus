@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SimpleWSA\SWSALibrary\SWSALibrary.csproj" />
-    <ProjectReference Include="..\..\TheNextLoop.OnScreenSize\Src\TheNextLoop.Markups\TheNextLoop.Markups\TheNextLoop.Markups.csproj" />
   </ItemGroup>
   
   <ItemGroup>
