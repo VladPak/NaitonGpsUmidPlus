@@ -14,6 +14,7 @@
   <ItemGroup>
     <PackageReference Include="morelinq" Version="3.3.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PhantomLib" Version="2.0.7" />
     <PackageReference Include="Plugin.CrossPlatformTintedImage" Version="1.0.0" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
@@ -21,7 +22,7 @@
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
     <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.2.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>

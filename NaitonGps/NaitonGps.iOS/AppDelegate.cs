@@ -40,7 +40,7 @@ namespace NaitonGps.iOS
             }
 
             LoadApplication(new NaitonGps.Application());
-            //PhantomLib.iOS.Effects.Effects.Init();
+            PhantomLib.iOS.Effects.Effects.Init();
             return base.FinishedLaunching(app, options);
         }
     }

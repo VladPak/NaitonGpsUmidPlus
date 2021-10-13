@@ -9,7 +9,7 @@ using System.Net;
 
 namespace NaitonGps.Droid
 {
-    [Activity(WindowSoftInputMode = SoftInput.AdjustPan, Label = "Naiton Gps", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "Naiton Gps", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,7 +30,8 @@ namespace NaitonGps.Droid
             Window.AddFlags(WindowManagerFlags.LayoutInOverscan);
 
             ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
-
+            PhantomLib.Droid.Effects.Effects.Init();
+            
             LoadApplication(new Application());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
