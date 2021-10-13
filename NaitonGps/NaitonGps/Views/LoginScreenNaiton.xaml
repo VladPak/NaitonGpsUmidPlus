@@ -10,7 +10,6 @@
              iOS:Page.UseSafeArea="False"
              iOS:Page.PrefersStatusBarHidden="True"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-              xmlns:phantomEffects="clr-namespace:PhantomLib.Effects;assembly=PhantomLib"
              >
     <Grid RowDefinitions="*" ColumnDefinitions="*">
         <Grid.GestureRecognizers>
@@ -25,17 +24,8 @@
                 <customFrame:PancakeView x:Name="frameLogin" BackgroundColor="#ffffff" CornerRadius="20,20,0,0">
                     <Grid RowDefinitions="0.7*, 0.7*, 0.7*, 0.9*, 0.6*, 0.6*" ColumnDefinitions="*" Margin="10,15,10,20">
 
-                        <Entry
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Start"
-                            Placeholder="Search..."
-                            PlaceholderColor="LightGray"
-                            HeightRequest="40">
-                            <Entry.Effects>
-                                <phantomEffects:RightImageEffect Source="icon_search" TintColor="Black" />
-                                <phantomEffects:EntryCursorColorEffect CursorColor="{StaticResource RedPrimary}" />
-                            </Entry.Effects>
-                        </Entry>
+                        <local:FloatingLabelInput Title="Company" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
+
                         <local:FloatingLabelInput Title="Email" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
                     <local:FloatingLabelInput Title="Password" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}" x:Name="entPassword"/>
                     

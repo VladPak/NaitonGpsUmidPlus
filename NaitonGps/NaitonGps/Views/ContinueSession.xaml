@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="3" x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
-            <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" x:Name="imgLogo" Source="logoMain.png"></Image>
+            <Image Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" x:Name="imgLogo" Source="logoMain.png" HorizontalOptions="Center" VerticalOptions="Center"></Image>
             
         </Grid>
     </ContentPage.Content>
