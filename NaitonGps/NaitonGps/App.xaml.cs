@@ -74,10 +74,9 @@ namespace NaitonGps
                 }
                 else if (IsBigScreen)
                 {
-                    //??
                     if (!isLoggedIn)
                     {
-                        var nav = new NavigationPage(new LoginScreenNaitonAndroidBig());
+                        var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
                         MainPage = nav;
                     }
                     else
@@ -90,14 +89,5 @@ namespace NaitonGps
 
         }
 
-        protected override void OnSleep()
-        {
-
-        }
-
-        protected override void OnResume()
-        {
-
-        }
     }
 }

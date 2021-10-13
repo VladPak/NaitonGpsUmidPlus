@@ -6,6 +6,7 @@ using Plugin.Connectivity;
 using SimpleWSA;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -33,30 +34,87 @@ namespace NaitonGps.Views
                 entCompany.Text = "upstairstest";
                 entEmail.Text = "m.aerts@upstairs.com";
                 entPassword.Text = "Gromit12";
-            #endif
+#endif
 
-            imgLogo.TranslationY = 100;
-            frameLogin.TranslationY = 450;
+            scrollToActive.IsEnabled = false;
+            imgLogo.TranslationY = -130;
+            GridFrame.TranslationY = 700;
 
             if (Device.RuntimePlatform == Device.iOS)
             {
-                ScrollViewMain.IsEnabled = true;
+                //ScrollViewMain.IsEnabled = true;
                 Grid.SetRowSpan(frameLogin, 2);
                 Grid.SetRow(GridFrame, 3);
             }
             else if (Device.RuntimePlatform == Device.Android)
             {
-                ScrollViewMain.IsEnabled = false;
-                Grid.SetRowSpan(frameLogin, 3);
-                Grid.SetRow(GridFrame, 4);
+                //ScrollViewMain.IsEnabled = false;
+                //Grid.SetRowSpan(frameLogin, 3);
+                //Grid.SetRow(GridFrame, 2);
             }
         }
 
-        //Main screen animation
+        uint duration = 250;
+        double openY = (Device.RuntimePlatform == "Android") ? 120 : 60;
+        double openYImgLogo = (Device.RuntimePlatform == "Android") ? -280 : 60;
+
+
+        //Tap the background to open Login frame
         private async void PopUpLoginFrame(object sender, EventArgs e)
         {
-            await imgLogo.TranslateTo(0, -90, 280, Easing.Linear);
-            await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
+            if (Backdrop.Opacity == 0)
+            {
+                await OpenDrawer();
+                scrollToActive.IsEnabled = true;
+
+            }
+            else
+            {
+                await CloseDrawer();
+            }
+        }
+
+        //Tap to appeared boxview to close Login frame
+        private async void ClickToCloseDrawer(object sender, EventArgs e)
+        {
+            if (isBackdropTapEnabled)
+            {
+                await CloseDrawer();
+            }
+        }
+
+        double lastPanY = 0;
+        bool isBackdropTapEnabled = true;
+
+        //Sliding up/down Login frame
+        async void PanGestureRecognizer_PanUpdated(System.Object sender, Xamarin.Forms.PanUpdatedEventArgs e)
+        {
+            if (e.StatusType == GestureStatus.Running)
+            {
+                isBackdropTapEnabled = false;
+                lastPanY = e.TotalY;
+                Debug.WriteLine($"Running: {e.TotalY}");
+                if (e.TotalY > 0)
+                {
+                    GridFrame.TranslationY = openY + e.TotalY;
+                }
+
+            }
+            else if (e.StatusType == GestureStatus.Completed)
+            {
+                //Debug.WriteLine($"Completed: {e.TotalY}");
+                if (lastPanY < 110)
+                {
+                    await OpenDrawer();
+                    scrollToActive.IsEnabled = true;
+
+                }
+                else
+                {
+                    await CloseDrawer();
+                }
+                isBackdropTapEnabled = true;
+            }
         }
 
         //Login
@@ -189,5 +247,27 @@ namespace NaitonGps.Views
         {
             await Navigation.PushModalAsync(new NeedHelp());
         }
+
+
+        async Task OpenDrawer()
+        {
+            await Task.WhenAll
+            (
+                Backdrop.FadeTo(1, length: duration),
+                GridFrame.TranslateTo(0, openY, length: duration, easing: Easing.SinIn),
+                imgLogo.TranslateTo(0, openYImgLogo, length: duration, easing: Easing.SinIn)
+            );
+        }
+
+        async Task CloseDrawer()
+        {
+            await Task.WhenAll
+            (
+                Backdrop.FadeTo(0, length: duration),
+                GridFrame.TranslateTo(0, 700, length: duration, easing: Easing.SinIn),
+                imgLogo.TranslateTo(0, -130, length: duration, easing: Easing.SinIn)
+            );
+        }
+
     }
 }
