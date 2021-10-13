@@ -76,7 +76,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding RackName}" TextColor="#1B222B" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='25', ExtraSmall='20'}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding Path=QuantityInStock, StringFormat='Qty:  {0}'}" TextColor="#69717E" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='25', ExtraSmall='17'}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding Path=QuantityInStock, StringFormat='Qty: {0:0}'}" TextColor="#69717E" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='25', ExtraSmall='17'}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
 
                                     <controls:TintedImage Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Source="rightarrow.png" TintColor="#D1D6D8" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
                                 </Grid>
