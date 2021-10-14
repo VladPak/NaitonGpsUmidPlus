@@ -27,10 +27,17 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Label x:Name="lblRacSelect" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Select Rack" FontSize="28" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label x:Name="lblRacSelect" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Select Rack" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
 
-            <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, 1.5*" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Transparent" VerticalOptions="Start">
-
+            <Grid RowDefinitions="*" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Transparent" VerticalOptions="Start">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>    
+                    <ColumnDefinition Width="*"></ColumnDefinition>    
+                    <ColumnDefinition Width="*"></ColumnDefinition>    
+                    <ColumnDefinition Width="*"></ColumnDefinition>    
+                    <ColumnDefinition x:Name="columnToAlter" Width="1*"></ColumnDefinition>    
+                </Grid.ColumnDefinitions>
+                
                 <local:BorderedEntry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,0,0,0" Placeholder="Search" FontSize="20" ReturnType="Done" x:Name="entSearch">
                     <local:BorderedEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
@@ -50,7 +57,7 @@
                 <Frame Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="#ffffff" CornerRadius="5" BorderColor="#69717E" HasShadow="False">
                     <StackLayout x:Name="slChange" Margin="-5,0,-5,0" Padding="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
                         <Image x:Name="imgScan" Source="scan.png" HeightRequest="20" WidthRequest="20"></Image>
-                        <Label x:Name="lblScanToHIde" Text="Scan" FontSize="17" TextColor="#1B222B" IsVisible="True" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                        <Label x:Name="lblScanToHIde" Text="Scan" FontSize="17" TextColor="#1B222B" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                     </StackLayout>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>

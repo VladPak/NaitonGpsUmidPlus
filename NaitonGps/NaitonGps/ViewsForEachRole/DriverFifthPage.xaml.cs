@@ -13,8 +13,8 @@ namespace NaitonGps.ViewsForEachRole.Driver
     public partial class DriverFifthPage : Grid
     {
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
-        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 480;
 
         public DriverFifthPage()
         {

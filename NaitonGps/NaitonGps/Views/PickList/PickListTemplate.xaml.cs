@@ -16,8 +16,8 @@ namespace NaitonGps.Views
     public partial class PickListTemplate : Grid
     {
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
-        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 480;
 
         public PickListTemplate()
         {
@@ -25,11 +25,13 @@ namespace NaitonGps.Views
 
             if (IsSmallScreen)
             {
-                mainGridd.Margin = new Thickness(5,20,5,15);
-                rowToAdjust.Height = new GridLength(0.7, GridUnitType.Star);
+                gridWithScannerIcon.Margin = new Thickness(-5, -10, -5, -10);
+                mainGridd.Margin = new Thickness(5,10,5,15);
+                rowToAdjust.Height = new GridLength(0.6, GridUnitType.Star);
             }
             else if (IsBigScreen)
             {
+                gridWithScannerIcon.Margin = new Thickness(-5, -14, -5, -10);
                 mainGridd.Margin = new Thickness(10, 0, 10, 10);
                 rowToAdjust.Height = new GridLength(0.4, GridUnitType.Star);
             }

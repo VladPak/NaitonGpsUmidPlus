@@ -101,7 +101,7 @@ namespace NaitonGps.Views
                                         Session session = new Session(userEmail,
                                                                         entPassword.Text,
                                                                         false,
-                                                                        4,
+                                                                        3,
                                                                         currentAppVersion,
                                                                         Preferences.Get("loginCompany", string.Empty),
                                                                         null);

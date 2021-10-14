@@ -16,8 +16,8 @@ namespace NaitonGps.Views
     public partial class AssignPicklistPopUp : PopupPage
     {
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
-        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 480;
 
         private readonly int pListId;
         public string mode;

@@ -42,8 +42,8 @@ namespace NaitonGps.Views
 
         //Screen size consideration for UI layout
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
-        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 480;
 
 
         public MainNavigationPage()
@@ -54,7 +54,7 @@ namespace NaitonGps.Views
 
             if (IsSmallScreen)
             {
-                bottomNavMenu.ColumnSpacing = 20;
+                bottomNavMenu.ColumnSpacing = 30;
             }
             else if (IsBigScreen)
             {
@@ -586,8 +586,443 @@ namespace NaitonGps.Views
                         break;
                     }
                 }
-            }       
-            
+
+            }
+
+            //SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
+            //command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+            //command.WriteSchema = WriteSchema.TRUE;
+            //string xmlResult = SimpleWSA.Command.Execute(command,
+            //                                   RoutineType.DataSet,
+            //                                   httpMethod: SimpleWSA.HttpMethod.GET,
+            //                                   responseFormat: ResponseFormat.JSON);
+
+            //var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+            //var allRoles = dataFinalize.Values.ToList();
+
+            //foreach (var item in allRoles)
+            //{
+            //    //Get number of screens allowed for user (21)
+            //    int numOfScreens = item.Select(p => p.Object).Count();
+            //    //Sort the received screens with the existing list
+            //    var countScreens = Screens.screens.Count();
+            //    res = Screens.screens.Where(screen => item.Any(title => title.Object.Equals(screen.ScreenTitle))).ToList();
+
+            //    //Count the sorted list of screens
+            //    var resC = res.Count();
+
+            //    if (resC > 0)
+            //    {
+            //        int numOfIndeces = resC / 5;
+            //        int numOfIndecesRemainder = resC % 5;
+
+            //        if (numOfIndecesRemainder > 0)
+            //        {
+            //            maxIndex = numOfIndeces + 1;
+            //        }
+            //        else if (numOfIndecesRemainder == 0)
+            //        {
+            //            maxIndex = numOfIndeces;
+            //        }
+
+            //        Array.Resize(ref allNavItems, 5);
+            //        allNavItems[0] = navItem1;
+            //        allNavItems[1] = navItem2;
+            //        allNavItems[2] = navItem3;
+            //        allNavItems[3] = navItem4;
+            //        allNavItems[4] = navItem5;
+
+            //        allNavItems[0].IsVisible = true;
+            //        allNavItems[1].IsVisible = true;
+            //        allNavItems[2].IsVisible = true;
+            //        allNavItems[3].IsVisible = true;
+            //        allNavItems[4].IsVisible = true;
+
+            //        //Divide filtered screens into batches (5 items per batch)
+            //        var calculatedBatches = res.Batch(5).ToList();
+
+            //        switch (selectedIndex)
+            //        {
+            //            case 1:
+            //                var index = 0;
+            //                foreach (var sublist in calculatedBatches)
+            //                {
+            //                    for (int i = 0; i < sublist.ToArray().Count(); i++)
+            //                    {
+            //                        if (sublist.Count() != allNavItems.Length)
+            //                        {
+            //                            switch (sublist.Count())
+            //                            {
+            //                                case 1:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = false;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 2:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 3:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 4:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 5:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = true;
+            //                                    break;
+            //                                default:
+            //                                    DisplayAlert("", "Oops smth wront!", "Ok");
+            //                                    break;
+            //                            }
+            //                            int skipMenuItems = sublist.Count();
+            //                            Array.Resize(ref allNavItems, skipMenuItems);
+
+            //                            //allNavItems.Slice(0, 2);
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                        else
+            //                        {
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                    }
+            //                    index++;
+            //                    if (index > 0)
+            //                    {
+            //                        ControlTemplate = sublist.ToList()[0].ScreenLink;
+            //                        break;
+            //                    }
+            //                }
+            //                break;
+            //            case 2:
+            //                var index2 = 0;
+            //                foreach (var sublist in calculatedBatches.Skip(1))
+            //                {
+            //                    for (int i = 0; i < sublist.ToArray().Count(); i++)
+            //                    {
+            //                        if (sublist.Count() != allNavItems.Length)
+            //                        {
+            //                            switch (sublist.Count())
+            //                            {
+            //                                case 1:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = false;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 2:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 3:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 4:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 5:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = true;
+            //                                    break;
+            //                                default:
+            //                                    DisplayAlert("", "Oops smth wront!", "Ok");
+            //                                    break;
+            //                            }
+            //                            int skipMenuItems = sublist.Count();
+            //                            Array.Resize(ref allNavItems, skipMenuItems);
+
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                        else
+            //                        {
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                    }
+            //                    index2++;
+            //                    if (index2 > 0)
+            //                    {
+            //                        ControlTemplate = sublist.ToList()[0].ScreenLink;
+            //                        break;
+            //                    }
+            //                }
+            //                break;
+            //            case 3:
+            //                var index3 = 0;
+            //                foreach (var sublist in calculatedBatches.Skip(2))
+            //                {
+            //                    for (int i = 0; i < sublist.ToArray().Count(); i++)
+            //                    {
+            //                        if (sublist.Count() != allNavItems.Length)
+            //                        {
+            //                            switch (sublist.Count())
+            //                            {
+            //                                case 1:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = false;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 2:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 3:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 4:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 5:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = true;
+            //                                    break;
+            //                                default:
+            //                                    DisplayAlert("", "Oops smth wront!", "Ok");
+            //                                    break;
+            //                            }
+            //                            int skipMenuItems = sublist.Count();
+            //                            Array.Resize(ref allNavItems, skipMenuItems);
+
+            //                            //allNavItems.Slice(0, 2);
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                        else
+            //                        {
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                    }
+            //                    index3++;
+            //                    if (index3 > 0)
+            //                    {
+            //                        ControlTemplate = sublist.ToList()[0].ScreenLink;
+            //                        break;
+            //                    }
+            //                }
+            //                break;
+            //            case 4:
+            //                var index4 = 0;
+            //                foreach (var sublist in calculatedBatches.Skip(3))
+            //                {
+            //                    for (int i = 0; i < sublist.ToArray().Count(); i++)
+            //                    {
+            //                        if (sublist.Count() != allNavItems.Length)
+            //                        {
+            //                            switch (sublist.Count())
+            //                            {
+            //                                case 1:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = false;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 2:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 3:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 4:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 5:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = true;
+            //                                    break;
+            //                                default:
+            //                                    DisplayAlert("", "Oops smth wront!", "Ok");
+            //                                    break;
+            //                            }
+            //                            int skipMenuItems = sublist.Count();
+            //                            Array.Resize(ref allNavItems, skipMenuItems);
+
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                        else
+            //                        {
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                    }
+            //                    index4++;
+            //                    if (index4 > 0)
+            //                    {
+            //                        ControlTemplate = sublist.ToList()[0].ScreenLink;
+            //                        break;
+            //                    }
+            //                }
+            //                break;
+            //            case 5:
+            //                var index5 = 0;
+            //                foreach (var sublist in calculatedBatches.Skip(4))
+            //                {
+            //                    for (int i = 0; i < sublist.ToArray().Count(); i++)
+            //                    {
+            //                        if (sublist.Count() != allNavItems.Length)
+            //                        {
+            //                            switch (sublist.Count())
+            //                            {
+            //                                case 1:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = false;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 2:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = false;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 3:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = false;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 4:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = false;
+            //                                    break;
+            //                                case 5:
+            //                                    allNavItems[0].IsVisible = true;
+            //                                    allNavItems[1].IsVisible = true;
+            //                                    allNavItems[2].IsVisible = true;
+            //                                    allNavItems[3].IsVisible = true;
+            //                                    allNavItems[4].IsVisible = true;
+            //                                    break;
+            //                                default:
+            //                                    break;
+            //                            }
+            //                            int skipMenuItems = sublist.Count();
+            //                            Array.Resize(ref allNavItems, skipMenuItems);
+
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                        else
+            //                        {
+            //                            for (int j = 0; j < allNavItems.Length; j++)
+            //                            {
+            //                                allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+            //                            }
+            //                        }
+            //                    }
+            //                    index5++;
+            //                    if (index5 > 0)
+            //                    {
+            //                        ControlTemplate = sublist.ToList()[0].ScreenLink;
+            //                        break;
+            //                    }
+            //                }
+            //                break;
+            //            default:
+            //                DisplayAlert("", "No attached index for the menu", "Ok");
+            //                btnLeftArrow.IsVisible = false;
+            //                btnRightArrow.IsVisible = false;
+            //                break;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
+            //        ControlTemplate = defaultTemp;
+            //        selectedIndex = 1;
+            //    }
+            //}
         }
 
         //Navigation controls
