@@ -1,59 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NaitonGps.Views.MainNavigationPage"
-             xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
+             x:Class="NaitonGps.Views.MainNavigationPage"             
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              iOS:Page.UseSafeArea="true"
              iOS:Page.PrefersStatusBarHidden="Default"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              BackgroundColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" 
+              xmlns:phantomExtensions="clr-namespace:PhantomLib.Extensions;assembly=PhantomLib"
              >
     <Grid RowDefinitions="*" ColumnDefinitions="*, 9*, *" Margin="0,0,0,0">
 
         <!--#region Bottom Navigation Menu -->
-        <controls:TintedImage Grid.Row="0" Grid.Column="0" x:Name="btnLeftArrow" Source="leftarrow.png" TintColor="{AppThemeBinding Light={StaticResource colorGrayStatic}, Dark={StaticResource colorGrayStatic}}" WidthRequest="20" HeightRequest="20" Margin="0,0,0,5" HorizontalOptions="Start" VerticalOptions="End">
+        <Image Grid.Row="0" Grid.Column="0" x:Name="btnLeftArrow" Source="leftarrow.png" phantomExtensions:Images.ImageColor="{AppThemeBinding Light={StaticResource colorGrayStatic}, Dark={StaticResource colorGrayStatic}}" WidthRequest="20" HeightRequest="20" Margin="0,0,0,5" HorizontalOptions="Start" VerticalOptions="End">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_PreviousRole" ></TapGestureRecognizer>
             </Image.GestureRecognizers>
-        </controls:TintedImage>
-        <controls:TintedImage Grid.Row="0" Grid.Column="2" x:Name="btnRightArrow" Source="rightarrow.png" TintColor="{AppThemeBinding Light={StaticResource colorGrayStatic}, Dark={StaticResource colorGrayStatic}}"  WidthRequest="20" HeightRequest="20" Margin="0,0,0,5" HorizontalOptions="End" VerticalOptions="End">
+        </Image>
+        <Image Grid.Row="0" Grid.Column="2" x:Name="btnRightArrow" Source="rightarrow.png" phantomExtensions:Images.ImageColor="{AppThemeBinding Light={StaticResource colorGrayStatic}, Dark={StaticResource colorGrayStatic}}"  WidthRequest="20" HeightRequest="20" Margin="0,0,0,5" HorizontalOptions="End" VerticalOptions="End">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_NextRole" ></TapGestureRecognizer>
             </Image.GestureRecognizers>
-        </controls:TintedImage>
+        </Image>
 
-        <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, *" x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, *" x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="End">
             <controls:TintedImage x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
-            </controls:TintedImage>
+            </Image>
 
-            <controls:TintedImage x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
-            </controls:TintedImage>
+            </Image>
 
-            <controls:TintedImage x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
-            </controls:TintedImage>
+            </Image>
 
-            <controls:TintedImage x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
-            </controls:TintedImage>
+            </Image>
 
-            <controls:TintedImage x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
-            </controls:TintedImage>
+            </Image>
 
             <Grid.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_PreviousRole"></SwipeGestureRecognizer>

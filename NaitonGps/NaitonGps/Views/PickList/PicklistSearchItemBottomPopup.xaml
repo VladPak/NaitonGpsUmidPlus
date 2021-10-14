@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NaitonGps.Views.PicklistSearchItemBottomPopup"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-             xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"             
              xmlns:local="clr-namespace:NaitonGps.Controls"
+            xmlns:phantomExtensions="clr-namespace:PhantomLib.Extensions;assembly=PhantomLib"
              >
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation 
@@ -84,7 +84,7 @@
                                     <Label x:Name="lblRackName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding RackName}" TextColor="#1B222B" FontSize="22" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
                                     <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding Path=QuantityInStock, StringFormat='Qty: {0:0}'}" TextColor="#69717E" FontSize="19" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
 
-                                    <controls:TintedImage Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Source="rightarrow.png" TintColor="#D1D6D8" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
+                                    <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Source="rightarrow.png" phantomExtensions:Images.ImageColor="#D1D6D8" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Center"></Image>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
