@@ -24,7 +24,7 @@
             </Image.GestureRecognizers>
         </controls:TintedImage>
 
-        <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, *" x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="End">
+        <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, *" x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
             <controls:TintedImage x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>

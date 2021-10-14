@@ -15,8 +15,8 @@ namespace NaitonGps.Views
     public partial class PicklistQuantityBottomPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool IsSmallScreen { get; } = ScreenWidth <= 360;
-        public static bool IsBigScreen { get; } = ScreenWidth >= 360;
+        public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
+        public static bool IsBigScreen { get; } = ScreenWidth >= 480;
 
         public PickListItem PickListItem { get; set; }
         public PicklistQuantityBottomPopup(ref PickListItem item)

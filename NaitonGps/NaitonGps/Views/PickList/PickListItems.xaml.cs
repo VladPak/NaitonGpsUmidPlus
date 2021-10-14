@@ -29,7 +29,7 @@ namespace NaitonGps.Views
             InitializeComponent();
             if (IsSmallScreen)
             {
-                gridMain.Margin = new Thickness(10, 0, 10, 0);
+                gridMain.Margin = new Thickness(10, 0, 10, 13);
                 rowToChange.Height = new GridLength(1.3, GridUnitType.Star);
                 iconBack.HeightRequest = 25;
                 iconBack.WidthRequest = 25;

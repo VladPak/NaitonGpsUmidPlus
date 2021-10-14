@@ -4,8 +4,9 @@
       x:Class="NaitonGps.Views.HeaderNavigationBar"
       HorizontalOptions="FillAndExpand"
       BackgroundColor="Transparent"
-      
+      Margin="0,10,0,0"
       RowDefinitions="*" ColumnDefinitions="*, *, *"
+      x:Name="mainGrids"
     >
     <Image x:Name="iconUser" Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png}" HorizontalOptions="Start" Margin="15,0,0,0">
         <Image.GestureRecognizers>
