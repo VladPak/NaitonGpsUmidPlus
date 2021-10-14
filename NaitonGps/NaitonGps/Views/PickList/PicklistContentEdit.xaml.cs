@@ -27,7 +27,7 @@ namespace NaitonGps.Views
         {            
             pListId = pickListId;
             items= DataManager.GetPickListItems(pListId);
-            CloseAllPopup();
+            //CloseAllPopup();
             InitializeComponent();
 
             if (IsSmallScreen)
@@ -45,7 +45,7 @@ namespace NaitonGps.Views
             else if (IsBigScreen)
             {
                 mainGrid.Margin = new Thickness(10, 0,10,0);
-                rowToChange.Height = new GridLength(1, GridUnitType.Star);
+                rowToChange.Height = new GridLength(1.5, GridUnitType.Star);
 
                 imgBack.HeightRequest = 30;
                 imgBack.WidthRequest = 30;

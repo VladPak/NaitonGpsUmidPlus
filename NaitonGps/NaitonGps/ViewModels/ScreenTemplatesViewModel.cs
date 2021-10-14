@@ -25,7 +25,7 @@ namespace NaitonGps.ViewModels
                 },                
                 new Screens
                 {
-                    screenNumber = 111, ScreenTitle = "AccountingReportsDiagnosticReports", ScreenImage = "picklist.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
+                    screenNumber = 111, ScreenTitle = "PickListForm", ScreenImage = "picklist.png", ScreenLink = new ControlTemplate(typeof(PickListTemplate))
                 },                
                 new Screens
                 {

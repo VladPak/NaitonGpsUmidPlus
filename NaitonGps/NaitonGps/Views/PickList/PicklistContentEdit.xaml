@@ -15,7 +15,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="8*"></RowDefinition>
-                <RowDefinition x:Name="rowToChange" Height="*"></RowDefinition>
+                <RowDefinition x:Name="rowToChange" Height="1.5*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid RowDefinitions="*" ColumnDefinitions="*, 3*, *" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalOptions="Center">
