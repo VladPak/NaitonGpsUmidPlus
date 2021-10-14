@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-             xmlns:local="clr-namespace:NaitonGps.Controls"
-             xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
+             xmlns:local="clr-namespace:NaitonGps.Controls"             
              x:Class="NaitonGps.Views.PicklistPrintLabelsBottomPopup"
+            xmlns:phantomExtensions="clr-namespace:PhantomLib.Extensions;assembly=PhantomLib"
              >
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation 
@@ -43,21 +43,21 @@
                 <Grid RowDefinitions="*" ColumnDefinitions="2*, *, 2*" ColumnSpacing="0" RowSpacing="0" >
 
                     <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#f2f3f4" CornerRadius="10" HasShadow="False" HorizontalOptions="Start">
-                        <controls:TintedImage Source="minus.png" TintColor="#000000" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
-                            <controls:TintedImage.GestureRecognizers>
+                        <Image Source="minus.png" phantomExtensions:Images.ImageColor="#000000" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"></TapGestureRecognizer>
-                            </controls:TintedImage.GestureRecognizers>
-                        </controls:TintedImage>
+                            </Image.GestureRecognizers>
+                        </Image>
                     </Frame>
 
                     <local:BorderedEntryTransparent Grid.Row="0" Grid.Column="1" FontSize="20" Grid.ColumnSpan="1" WidthRequest="80" IsEnabled="False" Margin="0,0,0,0" HorizontalTextAlignment="Center" TextColor="#000000" Placeholder="100000" BackgroundColor="Transparent" x:Name="entQuantity" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
                     <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="#f2f3f4" CornerRadius="10" HasShadow="False" HorizontalOptions="End">
-                        <controls:TintedImage Source="plus.png" TintColor="#000000" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
-                            <controls:TintedImage.GestureRecognizers>
+                        <Image Source="plus.png" phantomExtensions:Images.ImageColor="#000000" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"></TapGestureRecognizer>
-                            </controls:TintedImage.GestureRecognizers>
-                        </controls:TintedImage>
+                            </Image.GestureRecognizers>
+                        </Image>
                     </Frame>
                 </Grid>
             </Frame>
