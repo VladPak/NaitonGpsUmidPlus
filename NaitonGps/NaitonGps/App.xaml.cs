@@ -2,7 +2,6 @@
 using NaitonGps.Services;
 using NaitonGps.Views;
 using Newtonsoft.Json;
-using SimpleWSA;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Essentials;

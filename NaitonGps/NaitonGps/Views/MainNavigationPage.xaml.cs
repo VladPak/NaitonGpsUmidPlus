@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.CommunityToolkit.Markup;
 using SimpleWSA;
 using System.Net.Http;
 using System.Net.Http.Headers;
