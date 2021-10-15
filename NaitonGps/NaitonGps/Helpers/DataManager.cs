@@ -158,6 +158,7 @@ namespace NaitonGps.Helpers
         {
             SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
             command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = roleId;
+
             command.WriteSchema = WriteSchema.TRUE;
             string xmlResult = SimpleWSA.Command.Execute(command,
                                                 RoutineType.DataSet,
@@ -166,7 +167,7 @@ namespace NaitonGps.Helpers
 
             var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
             var allRoles = dataFinalize.Values.ToList();
-            return allRoles;
+            return allRoles.Where(r => r.Any(x => x.ObjectTypeId == 2 && x.TypeId == 6)).ToList();
         }
 
         #endregion Account
