@@ -45,8 +45,9 @@ namespace NaitonGps.Helpers
         {
             try
             {
-                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpicklists");                
-                command.Parameters.Add("_statusid", PgsqlDbType.Integer);
+                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpicklists");
+                command.Parameters.Add("_picklistid", PgsqlDbType.Integer);
+                command.Parameters.Add("_statusid", PgsqlDbType.Integer,3);
                 command.Parameters.Add("_pickerid", PgsqlDbType.Integer,_user.PersonId);
                 command.WriteSchema = WriteSchema.TRUE;
                 string xmlResult = SimpleWSA.Command.Execute(command,
@@ -165,7 +166,7 @@ namespace NaitonGps.Helpers
 
             var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
             var allRoles = dataFinalize.Values.ToList();
-            var mobile = allRoles.SelectMany(i=>i).Where(x=>x.ObjectTypeId == 2 && x.TypeId == 6).ToArray();
+            var mobile = allRoles.SelectMany(i=>i).Where(x => x.ObjectTypeId == 2 && x.TypeId == 6).ToArray();
             return mobile;
         }
 
