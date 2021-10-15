@@ -145,13 +145,12 @@ namespace NaitonGps.Views
                         DataManager.SetUserData(out int roleId);
                         var allRoles = DataManager.GetRoles(roleId);
 
-                        foreach (var item in allRoles)
-                        {
+                        
                             //Get number of screens allowed for user (21)
-                            int numOfScreens = item.Count();
+                            int numOfScreens = allRoles.Count();
                             //Sort the received screens with the existing list
                             var countScreens = Screens.Screens.Count();
-                            res = Screens.Screens.Where(screen => item.Any(title => title.Object.Equals(screen.ScreenTitle))).ToList();
+                            res = Screens.Screens.Where(screen => allRoles.Any(title => title.Object.Equals(screen.ScreenTitle))).ToList();
 
                             //Count the sorted list of screens
                             var resC = res.Count();
@@ -566,8 +565,7 @@ namespace NaitonGps.Views
                                 _ = DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
                                 ControlTemplate = defaultTemp;
                                 selectedIndex = 1;
-                            }
-                        }
+                            }                        
 
                         break;
                     }

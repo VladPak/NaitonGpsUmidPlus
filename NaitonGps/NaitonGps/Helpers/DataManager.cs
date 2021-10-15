@@ -45,8 +45,7 @@ namespace NaitonGps.Helpers
         {
             try
             {
-                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpicklists");
-                command.Parameters.Add("_picklistid", PgsqlDbType.Integer);
+                SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpicklists");                
                 command.Parameters.Add("_statusid", PgsqlDbType.Integer);
                 command.Parameters.Add("_pickerid", PgsqlDbType.Integer,_user.PersonId);
                 command.WriteSchema = WriteSchema.TRUE;
@@ -154,7 +153,7 @@ namespace NaitonGps.Helpers
             return _user;
         }
 
-        public static List<Roles[]> GetRoles(int roleId)
+        public static Roles[] GetRoles(int roleId)
         {
             SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
             command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = roleId;
@@ -166,7 +165,8 @@ namespace NaitonGps.Helpers
 
             var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
             var allRoles = dataFinalize.Values.ToList();
-            return allRoles;
+            var mobile = allRoles.SelectMany(i=>i).Where(x=>x.ObjectTypeId == 2 && x.TypeId == 6).ToArray();
+            return mobile;
         }
 
         #endregion Account

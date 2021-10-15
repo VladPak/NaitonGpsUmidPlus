@@ -54,7 +54,7 @@
                                         <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=PickListId, StringFormat='ID {0}'}" FontSize="17" FontAttributes="None" HorizontalOptions="Start"/>
 
                                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                                            <Label FontAttributes="Bold" Text="{Binding Path=Racks, StringFormat='Qty {0} &#x2022;'}" FontSize="15" TextColor="#000000"/>
+                                            <Label FontAttributes="Bold" Text="{Binding Path=Products, StringFormat='Qty {0} &#x2022;'}" FontSize="15" TextColor="#000000"/>
                                             <Label FontAttributes="Bold" Text="{Binding Path=Weight, StringFormat='{0:0.0} kg'}" FontSize="15" TextColor="#000000"/>
                                         </StackLayout>
 

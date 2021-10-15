@@ -7,9 +7,11 @@ namespace NaitonGps.Models
 {
     public class Roles
     {
-        [JsonProperty]
+        
         public int ObjectTypeId { get; set; }
-        [JsonProperty]
-        public string Object { get; set; }
+        
+        public string Object { get; set; }        
+
+        public int TypeId { get; set; }
     }
 }

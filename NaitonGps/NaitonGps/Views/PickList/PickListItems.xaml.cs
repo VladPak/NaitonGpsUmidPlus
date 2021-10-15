@@ -19,6 +19,7 @@ namespace NaitonGps.Views
     public partial class PicklistItems : ContentPage
     {
         private readonly int pListId;
+        public string mode;
 
         public static double ScreenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
         public static bool IsSmallScreen { get; } = ScreenWidth <= 480;
@@ -71,8 +72,14 @@ namespace NaitonGps.Views
         }
 
         private async void StartPicking(object sender, EventArgs e)
-        {            
-            await PopupNavigation.Instance.PushAsync(new AssignPicklistPopUp(pListId));
+        {
+            //await PopupNavigation.Instance.PushAsync(new AssignPicklistPopUp(pListId));
+
+            //_ = new AssignPicklistPopUp(pListId);
+            mode = "readAndEdit";
+            Preferences.Set("userMode", mode);
+            //await Navigation.RemovePopupPageAsync(currentPage);
+            await Navigation.PushModalAsync(new PicklistContentEdit(pListId));
         }
 
         private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
