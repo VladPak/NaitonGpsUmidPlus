@@ -72,7 +72,7 @@ namespace NaitonGps.Views
         }
 
         private async void StartPicking(object sender, EventArgs e)
-        {
+        {            
             //await PopupNavigation.Instance.PushAsync(new AssignPicklistPopUp(pListId));
 
             //_ = new AssignPicklistPopUp(pListId);

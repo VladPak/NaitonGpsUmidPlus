@@ -11,11 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NaitonGps", "NaitonGps\Nait
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimpleWSA", "SimpleWSA", "{CB4CE599-52D6-4A52-8945-88007D18CBCA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9CD1B9F8-EDD0-4563-B537-A3B33A942E7B}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWSACore", "SWSACore\SWSACore.csproj", "{21C2950A-9B02-4D71-A1D1-A42849248576}"
 EndProject
 Global
