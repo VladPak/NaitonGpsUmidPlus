@@ -21,22 +21,22 @@ namespace NaitonGps.Models
         [JsonProperty]
         public decimal Weight { get; set; }
 
-        //[JsonProperty]
-        //public int[] StatusIds { get; set; }
+        [JsonProperty]
+        public int[] StatusIds { get; set; }
 
         public string ColorStatus
         {
             get
             {
-                return "white";//listColors.ContainsKey(StatusIds?.FirstOrDefault() ?? -1) ? listColors[StatusIds?.FirstOrDefault() ?? -1] : listColors[-1];
+                return listColors.ContainsKey(StatusIds?.FirstOrDefault() ?? -1) ? listColors[StatusIds?.FirstOrDefault() ?? -1] : listColors[-1];
             }
         }
 
-        //readonly Dictionary<int, string> listColors = new Dictionary<int, string>
-        //{
-        //    {-1,"Gray" },
-        //    { 0,"White"},
-        //    { 2,"Orange"}
-        //};
+        readonly Dictionary<int, string> listColors = new Dictionary<int, string>
+        {
+            {-1,"Gray" },
+            { 0,"White"},
+            { 2,"Orange"}
+        };
     }
 }

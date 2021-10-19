@@ -6,8 +6,7 @@
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              iOS:Page.UseSafeArea="False"
              iOS:Page.PrefersStatusBarHidden="True"
-             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-             >
+             iOS:Page.PreferredStatusBarUpdateAnimation="Fade">
     <Grid RowDefinitions="*" ColumnDefinitions="*">
       
         <Image x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
