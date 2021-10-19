@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="itext7.pdfhtml" Version="3.0.5" />
     <PackageReference Include="morelinq" Version="3.3.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PhantomLib" Version="2.0.7" />
@@ -27,12 +28,18 @@
   <ItemGroup>
     <ProjectReference Include="..\..\SWSACore\SWSACore.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\CommonStyles.xaml.cs">
+      <DependentUpon>CommonStyles.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
   
   <ItemGroup>
     <EmbeddedResource Update="Controls\FloatingLabelInput.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Labels.xaml">
+    <EmbeddedResource Update="Resources\CommonStyles.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\MyColors.xaml">

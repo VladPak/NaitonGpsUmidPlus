@@ -22,7 +22,7 @@
 
                 <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
 
-                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3" BackgroundColor="#ffffff" CornerRadius="20, 20, 0, 0">
+                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3" BackgroundColor="{StaticResource colorWhite}" CornerRadius="20, 20, 0, 0">
                     <Grid RowDefinitions="1.2*, 1.2*, 1.2*, 1.4*, *, *" ColumnDefinitions="*" Padding="0, 25, 0, 40" Margin="20, 0, 20, 0" x:Name="GridFrameInPancake">
 
                         <local:FloatingLabelInput Title="Company" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
@@ -42,7 +42,7 @@
                             </ImageButton.Triggers>
                         </ImageButton>
 
-                        <Frame VerticalOptions="Center" Grid.Row="3" Grid.Column="0" BackgroundColor="#268646" CornerRadius="9" BorderColor="#268646" HasShadow="False" WidthRequest="100" HeightRequest="100">
+                        <Frame VerticalOptions="Center" Grid.Row="3" Grid.Column="0" BackgroundColor="{StaticResource colorGreenNaiton}" CornerRadius="9" BorderColor="{StaticResource colorGreenNaiton}" HasShadow="False" WidthRequest="100" HeightRequest="100">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label Text="Log In" FontSize="20" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                                 <Image Source="rightarrowWhite.png" HeightRequest="22" VerticalOptions="Center" HorizontalOptions="Center"></Image>
@@ -52,13 +52,13 @@
                             </Frame.GestureRecognizers>
                         </Frame>
 
-                        <Label Grid.Row="4" Grid.Column="0" Text="Need Help?" FontSize="18" TextColor="#268646" Margin="0,10,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Grid.Row="4" Grid.Column="0" Text="Need Help?" FontSize="18" TextColor="{StaticResource colorGreenNaiton}" Margin="0,10,0,0" HorizontalOptions="Center" VerticalOptions="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="CallNeedHelp" NumberOfTapsRequired="1"></TapGestureRecognizer>
                             </Label.GestureRecognizers>
                         </Label>
 
-                        <Label Grid.Row="5" Grid.Column="0" Text="Terms of Service" FontSize="13" TextColor="#7d7d7d" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Grid.Row="5" Grid.Column="0" Text="Terms of Service" FontSize="13" TextColor="{StaticResource colorGrayStatic}" HorizontalOptions="Center" VerticalOptions="Center">
                             <Label.Margin>
                                 <OnPlatform x:TypeArguments="Thickness">
                                     <On Platform="iOS" Value="0,40,0,0"/>

@@ -8,6 +8,7 @@ using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.IO;
 
 namespace NaitonGps.Views
 {
@@ -103,7 +104,7 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            await DisplayAlert("", "Save and Print", "Ok");            
+         
         }
 
         public async void CloseAllPopup()

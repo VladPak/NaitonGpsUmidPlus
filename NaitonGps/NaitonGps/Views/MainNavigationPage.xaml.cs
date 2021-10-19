@@ -553,7 +553,153 @@ namespace NaitonGps.Views
                                             }
                                         }
                                         break;
-                                    default:
+
+                                case 6:
+                                    var index6 = 0;
+                                    foreach (var sublist in calculatedBatches.Skip(5))
+                                    {
+                                        for (int i = 0; i < sublist.ToArray().Count(); i++)
+                                        {
+                                            if (sublist.Count() != allNavItems.Length)
+                                            {
+                                                switch (sublist.Count())
+                                                {
+                                                    case 1:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = false;
+                                                        allNavItems[2].IsVisible = false;
+                                                        allNavItems[3].IsVisible = false;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 2:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = false;
+                                                        allNavItems[3].IsVisible = false;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 3:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = true;
+                                                        allNavItems[3].IsVisible = false;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 4:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = true;
+                                                        allNavItems[3].IsVisible = true;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 5:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = true;
+                                                        allNavItems[3].IsVisible = true;
+                                                        allNavItems[4].IsVisible = true;
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                int skipMenuItems = sublist.Count();
+                                                Array.Resize(ref allNavItems, skipMenuItems);
+
+                                                for (int j = 0; j < allNavItems.Length; j++)
+                                                {
+                                                    allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                for (int j = 0; j < allNavItems.Length; j++)
+                                                {
+                                                    allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                                }
+                                            }
+                                        }
+                                        index6++;
+                                        if (index6 > 0)
+                                        {
+                                            ControlTemplate = sublist.ToList()[0].ScreenLink;
+                                            break;
+                                        }
+                                    }
+                                    break;
+
+                                case 7:
+                                    var index7 = 0;
+                                    foreach (var sublist in calculatedBatches.Skip(6))
+                                    {
+                                        for (int i = 0; i < sublist.ToArray().Count(); i++)
+                                        {
+                                            if (sublist.Count() != allNavItems.Length)
+                                            {
+                                                switch (sublist.Count())
+                                                {
+                                                    case 1:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = false;
+                                                        allNavItems[2].IsVisible = false;
+                                                        allNavItems[3].IsVisible = false;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 2:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = false;
+                                                        allNavItems[3].IsVisible = false;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 3:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = true;
+                                                        allNavItems[3].IsVisible = false;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 4:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = true;
+                                                        allNavItems[3].IsVisible = true;
+                                                        allNavItems[4].IsVisible = false;
+                                                        break;
+                                                    case 5:
+                                                        allNavItems[0].IsVisible = true;
+                                                        allNavItems[1].IsVisible = true;
+                                                        allNavItems[2].IsVisible = true;
+                                                        allNavItems[3].IsVisible = true;
+                                                        allNavItems[4].IsVisible = true;
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                int skipMenuItems = sublist.Count();
+                                                Array.Resize(ref allNavItems, skipMenuItems);
+
+                                                for (int j = 0; j < allNavItems.Length; j++)
+                                                {
+                                                    allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                for (int j = 0; j < allNavItems.Length; j++)
+                                                {
+                                                    allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                                }
+                                            }
+                                        }
+                                        index7++;
+                                        if (index7 > 0)
+                                        {
+                                            ControlTemplate = sublist.ToList()[0].ScreenLink;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                default:
                                         _ = DisplayAlert("", "No attached index for the menu", "Ok");
                                         btnLeftArrow.IsVisible = false;
                                         btnRightArrow.IsVisible = false;

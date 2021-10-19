@@ -15,27 +15,25 @@
              >
     <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="PopUpLoginFrame" NumberOfTapsRequired="1"></TapGestureRecognizer>
-            </Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="PopUpLoginFrame" NumberOfTapsRequired="1"></TapGestureRecognizer>
+        </Grid.GestureRecognizers>
 
         <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="imgLogo" Source="logoMain.png" HorizontalOptions="Center" VerticalOptions="Center"></Image>
 
-        <BoxView Color="#00000000" Opacity="0" x:Name="Backdrop" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <BoxView Color="{StaticResource colorTransparent}" Opacity="0" x:Name="Backdrop" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <BoxView.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ClickToCloseDrawer"/>
             </BoxView.GestureRecognizers>
         </BoxView>
 
-
-
-            <Grid IsVisible="true" RowDefinitions="*, *, 2*" ColumnDefinitions="*, *, *, *, *, *" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" x:Name="GridFrame">
+        <Grid IsVisible="true" RowDefinitions="*, *, 2*" ColumnDefinitions="*, *, *, *, *, *" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" x:Name="GridFrame">
             <ScrollView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="3" x:Name="scrollToActive">
 
-                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BackgroundColor="#ffffff" CornerRadius="20, 20, 0, 0">
+                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BackgroundColor="{StaticResource colorWhite}" CornerRadius="20, 20, 0, 0">
                     <customFrame:PancakeView.GestureRecognizers>
                         <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"></PanGestureRecognizer>
                     </customFrame:PancakeView.GestureRecognizers>
-                    <Grid BackgroundColor="Transparent" RowDefinitions="0.4*, 0.4*, 0.4*, 0.8*, 0.2*" ColumnDefinitions="*" Padding="0, 25, 0, 0" Margin="20, 0, 20, 0" x:Name="GridFrameInPancake">
+                    <Grid BackgroundColor="{StaticResource colorTransparent}" RowDefinitions="0.4*, 0.4*, 0.4*, 0.8*, 0.2*" ColumnDefinitions="*" Padding="0, 25, 0, 0" Margin="20, 0, 20, 0" x:Name="GridFrameInPancake">
 
                         <local:FloatingLabelInput Title="Company" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
                         <local:FloatingLabelInput Title="Email" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
@@ -54,9 +52,9 @@
                             </ImageButton.Triggers>
                         </ImageButton>
 
-                        <Frame VerticalOptions="Start" Grid.Row="3" Grid.Column="0" BackgroundColor="#268646" CornerRadius="9" BorderColor="#268646" HasShadow="False" WidthRequest="100" HeightRequest="40">
+                        <Frame VerticalOptions="Start" Grid.Row="3" Grid.Column="0" BackgroundColor="{StaticResource colorGreenNaiton}" CornerRadius="9" BorderColor="{StaticResource colorGreenNaiton}" HasShadow="False" WidthRequest="100" HeightRequest="40">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                                <Label Text="Log In" FontSize="20" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                                <Label Text="Log In" FontSize="20" TextColor="{StaticResource colorWhite}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                                 <Image Source="rightarrowWhite.png" HeightRequest="22" VerticalOptions="Center" HorizontalOptions="Center"></Image>
                             </StackLayout>
                             <Frame.GestureRecognizers>
@@ -64,32 +62,26 @@
                             </Frame.GestureRecognizers>
                         </Frame>
 
-                            <Label BackgroundColor="Transparent" Grid.Row="4" Grid.Column="0" Text="Need Help?" FontSize="18" TextColor="#268646" Margin="0,0,0,0" HorizontalOptions="Center" VerticalOptions="Start">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="CallNeedHelp" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                </Label.GestureRecognizers>
-                            </Label>
+                        <Label BackgroundColor="{StaticResource colorTransparent}" Grid.Row="4" Grid.Column="0" Text="Need Help?" FontSize="18" TextColor="{StaticResource colorGreenNaiton}" Margin="0,0,0,0" HorizontalOptions="Center" VerticalOptions="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CallNeedHelp" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
 
-                            <Label Grid.Row="5" Grid.Column="0" Text="Terms of Service" FontSize="15" TextColor="#7d7d7d" HorizontalOptions="Center" VerticalOptions="Start">
-                                <Label.Margin>
-                                    <OnPlatform x:TypeArguments="Thickness">
-                                        <On Platform="iOS" Value="0,40,0,0"/>
-                                        <On Platform="Android" Value="0,15,0,0"/>
-                                    </OnPlatform>
-                                </Label.Margin>
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="CallTermsAndService" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                </Label.GestureRecognizers>
-                            </Label>
-
-
-                      
-
+                        <Label Grid.Row="5" Grid.Column="0" Text="Terms of Service" FontSize="15" TextColor="{StaticResource colorGrayStatic}" HorizontalOptions="Center" VerticalOptions="Start">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="iOS" Value="0,40,0,0"/>
+                                    <On Platform="Android" Value="0,15,0,0"/>
+                                </OnPlatform>
+                            </Label.Margin>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CallTermsAndService" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Grid>
                 </customFrame:PancakeView>
             </ScrollView>
         </Grid>
-
     </Grid>
-
 </ContentPage>

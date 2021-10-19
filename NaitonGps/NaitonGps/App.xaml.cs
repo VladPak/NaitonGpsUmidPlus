@@ -18,6 +18,17 @@ namespace NaitonGps
 
         public Application()
         {
+            var navigationButtonSizes = new Style(typeof(Image))
+            {
+                Setters = {
+                    new Setter { Property = Image.HeightRequestProperty,    Value = 30 },
+                    new Setter { Property = Image.WidthRequestProperty,    Value = 30 }
+                }
+            };
+            
+            Resources = new ResourceDictionary();
+            Resources.Add("navigationButtonSizes", navigationButtonSizes);
+
             InitializeComponent();
         }
 

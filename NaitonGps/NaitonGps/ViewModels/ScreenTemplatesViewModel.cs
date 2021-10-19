@@ -105,11 +105,11 @@ namespace NaitonGps.ViewModels
                 },
                 new Screens
                 {
-                    screenNumber = 22, ScreenTitle = "Planner_Groups", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(DefaultTemplate))
+                    screenNumber = 22, ScreenTitle = "Planner_Groups", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(FifthRoleTemplate))
                 },                
                 new Screens
                 {
-                    screenNumber = 23, ScreenTitle = "Planner_Fuel", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(DefaultTemplate))
+                    screenNumber = 23, ScreenTitle = "Planner_Fuel", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(FifthRoleTemplate))
                 },
                 new Screens
                 {
@@ -153,11 +153,11 @@ namespace NaitonGps.ViewModels
                 },
                 new Screens
                 {
-                    screenNumber = 34, ScreenTitle = "Driver_Tasks", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(DefaultTemplate))
+                    screenNumber = 34, ScreenTitle = "Driver_Tasks", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(FifthRoleTemplate))
                 },
                 new Screens
                 {
-                    screenNumber = 35, ScreenTitle = "Driver_Dashboard", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(DefaultTemplate))
+                    screenNumber = 35, ScreenTitle = "Driver_Dashboard", ScreenImage = "notification.png", ScreenLink = new ControlTemplate(typeof(FifthRoleTemplate))
                 }
             };
         }

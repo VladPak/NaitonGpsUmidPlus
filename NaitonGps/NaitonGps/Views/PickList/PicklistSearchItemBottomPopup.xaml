@@ -18,8 +18,8 @@
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
 
-    <Frame CornerRadius="15" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
-        <Grid RowDefinitions="0.04*, 0.1*, 0.1*, 0.6*" ColumnDefinitions="*, *, *" RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0" Padding="0" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+    <Frame CornerRadius="15" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource colorWhite}" HasShadow="False">
+        <Grid RowDefinitions="0.04*, 0.1*, 0.1*, 0.6*" ColumnDefinitions="*, *, *" RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0" Padding="0" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource colorTransparent}">
 
             <Image x:Name="imgCloseP" Source="closePopup.png" WidthRequest="30" HeightRequest="30" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start">
                     <Image.GestureRecognizers>
@@ -27,9 +27,9 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Label x:Name="lblRacSelect" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Select Rack" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label x:Name="lblRacSelect" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Select Rack" FontAttributes="Bold" TextColor="{StaticResource colorBlack}" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
 
-            <Grid RowDefinitions="*" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Transparent" VerticalOptions="Start">
+            <Grid RowDefinitions="*" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="{StaticResource colorTransparent}" VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>    
                     <ColumnDefinition Width="*"></ColumnDefinition>    
@@ -42,7 +42,7 @@
                     <local:BorderedEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS" Value="#E7E8E7"/>
-                            <On Platform="Android" Value="#00000000"/>
+                            <On Platform="Android" Value="{StaticResource colorTransparent}"/>
                         </OnPlatform>
                     </local:BorderedEntry.BackgroundColor>
                 </local:BorderedEntry>
@@ -54,10 +54,10 @@
                             Source="search.png">
                 </ImageButton>
 
-                <Frame Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="#ffffff" CornerRadius="5" BorderColor="#69717E" HasShadow="False">
+                <Frame Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="{StaticResource colorWhite}" CornerRadius="5" BorderColor="{StaticResource colorGrayStatic}" HasShadow="False">
                     <StackLayout x:Name="slChange" Margin="-5,0,-5,0" Padding="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
                         <Image x:Name="imgScan" Source="scan.png" HeightRequest="20" WidthRequest="20"></Image>
-                        <Label x:Name="lblScanToHIde" Text="Scan" FontSize="17" TextColor="#1B222B" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                        <Label x:Name="lblScanToHIde" Text="Scan" FontSize="17" TextColor="{StaticResource colorGrayTextColor}" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                     </StackLayout>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -67,7 +67,7 @@
 
             <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
                 <ScrollView VerticalScrollBarVisibility="Never" IsEnabled="True">
-                    <CollectionView ItemsSource="{Binding Racks}" VerticalScrollBarVisibility="Never" BackgroundColor="Transparent" VerticalOptions="Fill" HeightRequest="100">
+                    <CollectionView ItemsSource="{Binding Racks}" VerticalScrollBarVisibility="Never" BackgroundColor="{StaticResource colorTransparent}" VerticalOptions="Fill" HeightRequest="100">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid ColumnSpacing="0" RowSpacing="0" Margin="0,15,0,10">
@@ -81,8 +81,8 @@
                                         <ColumnDefinition Width="0.2*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label x:Name="lblRackName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding RackName}" TextColor="#1B222B" FontSize="22" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding Path=QuantityInStock, StringFormat='Qty: {0:0}'}" TextColor="#69717E" FontSize="19" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <Label x:Name="lblRackName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding RackName}" TextColor="{StaticResource colorGrayTextColor}" FontSize="22" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding Path=QuantityInStock, StringFormat='Qty: {0:0}'}" TextColor="{StaticResource colorGrayStatic}" FontSize="19" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
 
                                     <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Source="rightarrow.png" phantomExtensions:Images.ImageColor="#D1D6D8" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Center"></Image>
                                 </Grid>

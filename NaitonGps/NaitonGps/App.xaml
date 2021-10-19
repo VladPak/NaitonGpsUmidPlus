@@ -7,7 +7,7 @@
              >
     <Application.Resources>
         <ResourceDictionary Source="Resources/MyColors.xaml"/>
-        <ResourceDictionary Source="Resources/Labels.xaml"/>
+        <ResourceDictionary Source="Resources/CommonStyles.xaml"/>
 
     </Application.Resources>
 </Application>
