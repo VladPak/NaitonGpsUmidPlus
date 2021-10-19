@@ -9,12 +9,11 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
     <Grid RowDefinitions="*" ColumnDefinitions="*">
-      
+
         <Image x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
             <Grid RowDefinitions="2*, *, *" ColumnDefinitions="*, *, *, *, *, *" Grid.Row="0" Grid.Column="0" x:Name="GridFrame">
 
-                <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
-
-            </Grid>
+        <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
+        </Grid>
     </Grid>
 </ContentPage>

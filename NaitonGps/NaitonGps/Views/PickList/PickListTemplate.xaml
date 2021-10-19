@@ -20,17 +20,17 @@
     <!--#endregion-->
     
     <!--#region Body -->
-    <Grid x:Name="ContentContainer" ColumnDefinitions="*, *, *" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,10,15,0" BackgroundColor="Transparent">
+    <Grid x:Name="ContentContainer" ColumnDefinitions="*, *, *" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,10,15,0" BackgroundColor="{StaticResource colorTransparent}">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="rowToAdjust" Height="0.6*"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid RowDefinitions="*" ColumnDefinitions="*, *" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="Transparent">
+        <Grid RowDefinitions="*" ColumnDefinitions="*, *" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="{StaticResource colorTransparent}">
             
             <Label Grid.Row="0" Grid.Column="0" x:Name="Content" Font="Bold" HorizontalOptions="Start" VerticalOptions="Center" FontSize="25" Text="Picklist"/>
-            
-            <Frame Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="#ffffff" Margin="0,0,0,0" CornerRadius="5" BorderColor="#69717E" HasShadow="False" WidthRequest="60">
+
+            <Frame Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="{StaticResource colorWhite}" Margin="0" CornerRadius="5" BorderColor="#69717E" HasShadow="False" WidthRequest="60">
                 <StackLayout x:Name="gridWithScannerIcon" Margin="-5,-10,-5,-10" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                     <Image Source="scan.png" HeightRequest="20"></Image>
                     <Label Text="Scan" FontSize="17" TextColor="#1B222B" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
@@ -43,7 +43,7 @@
 
         <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="3">
             <ScrollView VerticalScrollBarVisibility="Never">
-                <CollectionView ItemsSource="{Binding Picklist}" BackgroundColor="Transparent" VerticalOptions="Fill" VerticalScrollBarVisibility="Never" HeightRequest="100">
+                <CollectionView ItemsSource="{Binding Picklist}" BackgroundColor="{StaticResource colorTransparent}" VerticalOptions="Fill" VerticalScrollBarVisibility="Never" HeightRequest="100">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
@@ -51,15 +51,15 @@
                                     <Grid RowDefinitions="0.2*, 0.2*" ColumnDefinitions="0.1*, 2*, 6*, 0.1*" ColumnSpacing="0" RowSpacing="0">
                                         <Image Margin="-20, 0, 0, 0" phantomExtensions:Images.ImageColor="{Binding ColorStatus}" Source="statusBar.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></Image>
 
-                                        <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=PickListId, StringFormat='ID {0}'}" FontSize="17" FontAttributes="None" HorizontalOptions="Start"/>
+                                        <Label BackgroundColor="{StaticResource colorTransparent}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=PickListId, StringFormat='ID {0}'}" FontSize="17" FontAttributes="None" HorizontalOptions="Start"/>
 
                                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                                            <Label FontAttributes="Bold" Text="{Binding Path=Products, StringFormat='Qty {0} &#x2022;'}" FontSize="15" TextColor="#000000"/>
-                                            <Label FontAttributes="Bold" Text="{Binding Path=Weight, StringFormat='{0:0.0} kg'}" FontSize="15" TextColor="#000000"/>
+                                            <Label FontAttributes="Bold" Text="{Binding Path=Products, StringFormat='Qty {0} &#x2022;'}" FontSize="15" TextColor="{StaticResource colorBlack}"/>
+                                            <Label FontAttributes="Bold" Text="{Binding Path=Weight, StringFormat='{0:0.0} kg'}" FontSize="15" TextColor="{StaticResource colorBlack}"/>
                                         </StackLayout>
 
-                                        <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" TextColor="#5c5c5c" Grid.ColumnSpan="2" Grid.RowSpan="2" WidthRequest="100" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding PickerName}" FontSize="14" HorizontalOptions="End" FontAttributes="None"/>
-                                        <Image BackgroundColor="Transparent" Source="rightarrow.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" phantomExtensions:Images.ImageColor="{StaticResource colorGrayStatic}"></Image>
+                                        <Label BackgroundColor="{StaticResource colorTransparent}" Grid.Row="0" Grid.Column="2" TextColor="#5c5c5c" Grid.ColumnSpan="2" Grid.RowSpan="2" WidthRequest="100" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding PickerName}" FontSize="14" HorizontalOptions="End" FontAttributes="None"/>
+                                        <Image BackgroundColor="{StaticResource colorTransparent}" Source="rightarrow.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" phantomExtensions:Images.ImageColor="{StaticResource colorGrayStatic}"></Image>
                                     </Grid>
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="PicklistContentPage" NumberOfTapsRequired="1" CommandParameter="{Binding Path=PickListId}" />
@@ -75,6 +75,6 @@
     <!--#endregion-->
 
     <!--#region Botton Navbar content -->
-    <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />
+    <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="{StaticResource colorTransparent}" />
     <!--#endregion-->
 </Grid>

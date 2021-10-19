@@ -9,6 +9,7 @@ using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.IO;
 
 namespace NaitonGps.Views
 {
@@ -52,7 +53,7 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.DisplayAlert("", "Scanner", "Ok");
+            
         }
 
         private async void PicklistContentPage(object sender, EventArgs e)

@@ -18,28 +18,28 @@
     </pages:PopupPage.Animation>
 
     <ScrollView VerticalScrollBarVisibility="Never" VerticalOptions="Center">
-        <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
+        <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource colorWhite}" HasShadow="False">
 
-            <Grid x:Name="gridMain" BindingContext="{Binding PickListItem}" RowDefinitions="0.2*, 0.5*, 0.4*, 0.7*" ColumnDefinitions="*,*,*" RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,15" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#ffffff">
+            <Grid x:Name="gridMain" BindingContext="{Binding PickListItem}" RowDefinitions="0.2*, 0.5*, 0.4*, 0.7*" ColumnDefinitions="*,*,*" RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,15" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="{StaticResource colorWhite}">
                 <Image x:Name="imgCloseP" Source="closePopup.png" WidthRequest="30" HeightRequest="30" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Label x:Name="lblQunaitty" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Quantity" FontSize="28" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label x:Name="lblQunaitty" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Quantity" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource colorBlack}" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
 
                 <local:BorderedEntry Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,-20,0,0" Placeholder="Enter quantity" Keyboard="Numeric" ReturnType="Done" x:Name="entQuantity" Text="{Binding Path=Quantity}">
                     <local:BorderedEntry.BackgroundColor>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="iOS" Value="#F2F3F4"/>
-                            <On Platform="Android" Value="#00000000"/>
+                            <On Platform="iOS" Value="{StaticResource colorGrayBackground}"/>
+                            <On Platform="Android" Value="{StaticResource colorTransparent}"/>
                         </OnPlatform>
                     </local:BorderedEntry.BackgroundColor>
                 </local:BorderedEntry>
 
-                <Frame x:Name="frameToChange" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#187CBC" CornerRadius="9" BorderColor="#187CBC" HasShadow="False" WidthRequest="100" HeightRequest="30">
-                    <Label x:Name="lblApply" Text="Apply" FontSize="18" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <Frame x:Name="frameToChange" VerticalOptions="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="{StaticResource colorBlueNaiton}" CornerRadius="9" BorderColor="{StaticResource colorBlueNaiton}" HasShadow="False" WidthRequest="100" HeightRequest="30">
+                    <Label x:Name="lblApply" Text="Apply" FontSize="18" TextColor="{StaticResource colorWhite}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>

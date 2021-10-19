@@ -30,7 +30,7 @@
             </Image>
 
             <Image x:Name="imgQuestion" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="65" HeightRequest="65" Source="acceptance.png"></Image>
-            <Label x:Name="lblNeedHelp" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Terms And Service" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold" Margin="0,0,0,0" TextColor="Black"></Label>
+            <Label x:Name="lblNeedHelp" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Terms And Service" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold" Margin="0,0,0,0" TextColor="{StaticResource colorBlack}"></Label>
         </Grid>
     </ContentPage.Content>
 </ContentPage> 

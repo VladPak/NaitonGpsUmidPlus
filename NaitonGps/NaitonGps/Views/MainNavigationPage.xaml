@@ -8,9 +8,9 @@
              iOS:Page.PrefersStatusBarHidden="Default"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              BackgroundColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" 
-              xmlns:phantomExtensions="clr-namespace:PhantomLib.Extensions;assembly=PhantomLib"
+             xmlns:phantomExtensions="clr-namespace:PhantomLib.Extensions;assembly=PhantomLib"
              >
-    <Grid RowDefinitions="*" ColumnDefinitions="*, 9*, *" Margin="0,0,0,0">
+    <Grid RowDefinitions="*" ColumnDefinitions="*, 9*, *" Margin="0">
 
         <!--#region Bottom Navigation Menu -->
         <Image Grid.Row="0" Grid.Column="0" x:Name="btnLeftArrow" Source="leftarrow.png" phantomExtensions:Images.ImageColor="{AppThemeBinding Light={StaticResource colorGrayStatic}, Dark={StaticResource colorGrayStatic}}" WidthRequest="20" HeightRequest="20" Margin="0,0,0,5" HorizontalOptions="Start" VerticalOptions="End">
@@ -25,31 +25,31 @@
         </Image>
 
         <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, *" x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="End">
-            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="{DynamicResource navigationButtonSizes}" HeightRequest="{DynamicResource navigationButtonSizes}" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="{DynamicResource navigationButtonSizes}" HeightRequest="{DynamicResource navigationButtonSizes}" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="" WidthRequest="{DynamicResource navigationButtonSizes}" HeightRequest="{DynamicResource navigationButtonSizes}" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="" WidthRequest="{DynamicResource navigationButtonSizes}" HeightRequest="{DynamicResource navigationButtonSizes}" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+            <Image x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="" WidthRequest="{DynamicResource navigationButtonSizes}" HeightRequest="{DynamicResource navigationButtonSizes}" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>

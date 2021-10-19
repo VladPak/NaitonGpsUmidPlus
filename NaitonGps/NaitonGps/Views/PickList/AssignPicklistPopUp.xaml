@@ -4,8 +4,8 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              x:Class="NaitonGps.Views.AssignPicklistPopUp"     
              >
-    <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
-        <Grid Margin="0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ffffff">
+    <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource colorWhite}" HasShadow="False">
+        <Grid Margin="0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource colorWhite}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition Height="0.5*"></RowDefinition>
@@ -28,17 +28,17 @@
                 <Label x:Name="lblPress" Text="Press 'NO' for view and 'Assign' for view and edit" HorizontalTextAlignment="Center" FontAttributes="None" FontSize="16" CharacterSpacing="1.3" VerticalOptions="Center" HorizontalOptions="Center"></Label>
             </StackLayout>
 
-            <Frame x:Name="frameWW" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" BackgroundColor="#ffffff" CornerRadius="9" BorderColor="#E7E7E8" HasShadow="False" WidthRequest="100" HeightRequest="30">
-                        <Label x:Name="LblNooo" Text="No" FontSize="18" TextColor="#000000" FontAttributes="None" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Frame x:Name="frameWW" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" BackgroundColor="{StaticResource colorWhite}" CornerRadius="9" BorderColor="#E7E7E8" HasShadow="False" WidthRequest="100" HeightRequest="30">
+                        <Label x:Name="LblNooo" Text="No" FontSize="18" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>
             </Frame>
 
-            <Frame x:Name="frameChange" VerticalOptions="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BackgroundColor="#187CBC" CornerRadius="9" BorderColor="#187CBC" HasShadow="False" WidthRequest="80" HeightRequest="30">
+            <Frame x:Name="frameChange" VerticalOptions="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BackgroundColor="{StaticResource colorBlueNaiton}" CornerRadius="9" BorderColor="{StaticResource colorBlueNaiton}" HasShadow="False" WidthRequest="80" HeightRequest="30">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                     <Image Source="btnPopup.png" HeightRequest="22" VerticalOptions="Center" HorizontalOptions="Center"></Image>
-                    <Label x:Name="lblAssignN" Text="Assign" FontSize="20" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Label x:Name="lblAssignN" Text="Assign" FontSize="20" TextColor="{StaticResource colorWhite}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>

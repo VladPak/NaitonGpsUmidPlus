@@ -27,7 +27,7 @@
                 <Label x:Name="userInfoEmail" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Start" Text="User Email" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
                 <Label IsVisible="false" x:Name="userInfoName" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Start" Text="User Email" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
 
-                <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" CornerRadius="25" BackgroundColor="#268646" BorderColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" HasShadow="False" >
+                <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" CornerRadius="25" BackgroundColor="{StaticResource colorGreenNaiton}" BorderColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" HasShadow="False" >
                     <StackLayout>
                         <Label Text="Logout" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorWhite}}" HorizontalOptions="Center" VerticalOptions="Center">
                         </Label>
@@ -36,7 +36,7 @@
                         <TapGestureRecognizer Tapped="Logout" NumberOfTapsRequired="1"/>
                     </Frame.GestureRecognizers>
                 </Frame>
-                <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" CornerRadius="25" BackgroundColor="#69717E" BorderColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" HasShadow="False" >
+                <Frame Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" CornerRadius="25" BackgroundColor="{StaticResource colorGrayStatic}" BorderColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" HasShadow="False" >
                     <StackLayout>
                         <Label Text="Close" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorWhite}}" HorizontalOptions="Center" VerticalOptions="Center">
                         </Label>
