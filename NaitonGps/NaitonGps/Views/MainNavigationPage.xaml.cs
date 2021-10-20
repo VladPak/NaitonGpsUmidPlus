@@ -142,12 +142,11 @@ namespace NaitonGps.Views
                 {
                     try
                     {
-                        DataManager.SetUserData(out int roleId);
-                        var allRoles = DataManager.GetRoles(roleId);
+            var allRoles = DataManager.GetRoles(AuthenticationService.User.RoleId);
 
-                        
-                            //Get number of screens allowed for user (21)
-                            int numOfScreens = allRoles.Count();
+
+            //Get number of screens allowed for user (21)
+            int numOfScreens = allRoles.Count();
                             //Sort the received screens with the existing list
                             var countScreens = Screens.Screens.Count();
                             res = Screens.Screens.Where(screen => allRoles.Any(title => title.Object.Equals(screen.ScreenTitle))).ToList();

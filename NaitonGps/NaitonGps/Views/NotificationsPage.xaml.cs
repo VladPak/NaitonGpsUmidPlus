@@ -1,4 +1,5 @@
 ﻿using NaitonGps.Models;
+using NaitonGps.Services;
 using Newtonsoft.Json;
 using Rg.Plugins.Popup.Extensions;
 using System;
@@ -22,10 +23,12 @@ namespace NaitonGps.Views
         public NotificationsPage()
         {
             InitializeComponent();
-            UserDetails userLoginDetails = JsonConvert.DeserializeObject<UserDetails>((string)Application.Current.Properties["UserDetail"]);
 
-            //userEmail.Text = "Name: " + userLoginDetails.EmployeeName;
-        }
+      //UserDetails userLoginDetails = JsonConvert.DeserializeObject<UserDetails>((string)Application.Current.Properties["UserDetail"]);
+      UserLoginDetails userLoginDetails = AuthenticationService.User;
+
+      //userEmail.Text = "Name: " + userLoginDetails.EmployeeName;
+    }
 
         private async void Logout(object sender, EventArgs e)
         {

@@ -45,127 +45,100 @@ namespace NaitonGps.Views
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
         }
 
-        //Login
-        private async void LoginInit(object sender, EventArgs e)
+    private async void LoginInit(object sender, EventArgs e)
+    {
+      if (CrossConnectivity.Current.IsConnected)
+      {
+        var domain = entCompany.Text;
+
+        taps++;
+
+        bool isCompanyNameValid = await AuthenticationService.IsCompanyNameValid(domain);
+        if (isCompanyNameValid)
         {
+          if (taps == 1)
+          {
+            var email = entEmail.Text;
+            var password = entPassword.Text;
+            
+            var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
             if (CrossConnectivity.Current.IsConnected)
             {
-                Preferences.Set("loginCompany", entCompany.Text);
+              if (string.IsNullOrEmpty(password) || string.IsNullOrWhiteSpace(password))
+              {
+                await DisplayAlert("", "Invalid password", "Ok");
+                entCompany.Text = domain;
+                entEmail.Text = email;
 
-                //Call Web service
-                taps++;
-                var response = await ApiService.GetWebService(entCompany.Text);
+                entPassword.Text = string.Empty;
+                entPassword.Focus();
+              }
+              else if (string.IsNullOrWhiteSpace(email) || string.IsNullOrEmpty(email) || !Regex.IsMatch(email, emailPattern))
+              {
+                await DisplayAlert("", "Invalid email", "Ok");
+                entCompany.Text = domain;
+                entPassword.Text = password;
 
-                if (response)
+                entEmail.Text = string.Empty;
+                entEmail.Focus();
+              }
+              else
+              {
+                int appId = 6;
+                string appVersion = VersionTracking.CurrentVersion; ;
+                try
                 {
-                    if (taps == 1)
-                    {
-                        var userEmail = entEmail.Text;
-                        var userPassword = entPassword.Text;
-                        Preferences.Set("loginEmail", entEmail.Text);
-                        Preferences.Set("loginPassword", entPassword.Text);
+                  await AuthenticationService.CreateSessionAndSaveUserDetail(email, password, appId, appVersion, domain);
 
-                        var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-
-                        if (CrossConnectivity.Current.IsConnected)
-                        {
-                            if (string.IsNullOrEmpty(userPassword) || string.IsNullOrWhiteSpace(userPassword))
-                            {
-                                await DisplayAlert("", "Invalid password", "Ok");
-                                entCompany.Text = Preferences.Get("loginCompany", string.Empty);
-                                entEmail.Text = Preferences.Get("loginEmail", string.Empty);
-                                entPassword.Text = string.Empty;
-                                entPassword.Focus();
-                            }
-                            else if (string.IsNullOrWhiteSpace(userEmail) || string.IsNullOrEmpty(userEmail) || !Regex.IsMatch(userEmail, emailPattern))
-                            {
-                                await DisplayAlert("", "Invalid email", "Ok");
-                                entCompany.Text = Preferences.Get("loginCompany", string.Empty);
-                                entPassword.Text = Preferences.Get("loginPassword", string.Empty);
-                                entEmail.Text = string.Empty;
-                                entEmail.Focus();
-                            }
-                            else
-                            {
-                                while (true)
-                                {
-                                    try
-                                    {
-                                        string currentAppVersion = VersionTracking.CurrentVersion;
-                                        Session session = new Session(userEmail,
-                                                                        userPassword,
-                                                                        false,
-                                                                        6,
-                                                                        currentAppVersion,
-                                                                        Preferences.Get("loginCompany", string.Empty),
-                                                                        null);
-                                        await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
-
-                                        var user = DataManager.RegistrationServiceSession();
-
-                                        Application.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(user);
-                                        await Application.Current.SavePropertiesAsync();
-                                        Xamarin.Forms.Application.Current.Properties["IsLoggedIn"] = bool.TrueString;
-
-                                        Xamarin.Forms.Application.Current.MainPage = new MainNavigationPage();
-                                        break;
-                                    }
-                                    catch (RestServiceException exRes)
-                                    {
-                                        if (exRes.Code == "MI008")
-                                        {
-                                            await SessionContext.Refresh();
-                                            continue;
-                                        }
-                                        else
-                                        {
-                                            await DisplayAlert("", exRes.Message, "Ok");
-                                            entEmail.Text = string.Empty;
-                                            entPassword.Text = string.Empty;
-                                            entEmail.Focus();
-                                            break;
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        await DisplayAlert("", ex.Message, "Ok");
-                                        entEmail.Text = string.Empty;
-                                        entPassword.Text = string.Empty;
-                                        entEmail.Focus();
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            await DisplayAlert("", "Check the Internet connection.", "Ok");
-                        }
-                        taps = 0;
-                    }
-                    else if (taps >= 2)
-                    {
-                        taps = 1;
-                        await DisplayAlert("", "Please wait. Your request is being proceeded", "Ok");
-                    }
+                  Xamarin.Forms.Application.Current.Properties["IsLoggedIn"] = bool.TrueString;
+                  Xamarin.Forms.Application.Current.MainPage = new MainNavigationPage();
                 }
-                else
+                catch (RestServiceException rex)
                 {
-                    await DisplayAlert("", "Wrong company name. Please enter valid name", "Ok");
-                    entCompany.Text = string.Empty;
-                    entCompany.Focus();
-                    taps = 0;
+                  await DisplayAlert("", rex.OriginalMessage, "Ok");
+                  entEmail.Text = string.Empty;
+                  entPassword.Text = string.Empty;
+                  entEmail.Focus();
                 }
+                catch (Exception ex)
+                {
+                  await DisplayAlert("", ex.Message, "Ok");
+                  entEmail.Text = string.Empty;
+                  entPassword.Text = string.Empty;
+                  entEmail.Focus();
+                }
+              }
             }
             else
             {
-                await DisplayAlert("", "Check the Internet connection.", "Ok");
-                taps = 0;
+              await DisplayAlert("", "Check the Internet connection.", "Ok");
             }
+            taps = 0;
+          }
+          else if (taps >= 2)
+          {
+            taps = 1;
+            await DisplayAlert("", "Please wait. Your request is being proceeded", "Ok");
+          }
         }
+        else
+        {
+          await DisplayAlert("", "Wrong company name. Please enter valid name", "Ok");
+          entCompany.Text = string.Empty;
+          entCompany.Focus();
+          taps = 0;
+        }
+      }
+      else
+      {
+        await DisplayAlert("", "Check the Internet connection.", "Ok");
+        taps = 0;
+      }
+    }
 
-        //Call for TermsAndServices
-        private async void CallTermsAndService(object sender, EventArgs e)
+    //Call for TermsAndServices
+    private async void CallTermsAndService(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new TermsAndServices());
         }

@@ -5,37 +5,30 @@ using System.Text;
 
 namespace NaitonGps.Models
 {
-    public class UserLoginDetails
-    {
-        [JsonProperty]
-        public string userEmail { get; set; }
-        [JsonProperty]
+  public class UserLoginDetails
+  {
+    [JsonProperty]
+    public string userEmail { get; set; }
 
-        public string userPassword { get; set; }
-        [JsonProperty]
+    [JsonProperty]
+    public string userPassword { get; set; }
 
-        public string userToken { get; set; }
-        [JsonProperty]
+    [JsonProperty]
+    public bool isEncrypted { get; set; }
 
-        public bool isEncrypted { get; set; }
-        [JsonProperty]
+    [JsonProperty]
+    public int appId { get; set; }
 
-        public int appId { get; set; }
-        [JsonProperty]
+    [JsonProperty]
+    public string appVersion { get; set; }
 
-        public string appVersion { get; set; }
-        [JsonProperty]
+    [JsonProperty]
+    public string domain { get; set; }
 
-        public string domain { get; set; }
-        [JsonProperty]
+    [JsonProperty]
+    public int PersonId { get; set; }
 
-        public string connectionProviderAddress { get; set; }
-        [JsonProperty]
-
-        public int PersonId { get; set; }
-        [JsonProperty]
-
-        public int RoleId { get; set; }
-
-    }
+    [JsonProperty]
+    public int RoleId { get; set; }
+  }
 }
